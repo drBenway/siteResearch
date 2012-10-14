@@ -163,7 +163,7 @@ class CrawlerResultsDB extends DBPDO implements DatabaseResultInterface
     public function getGoodUrlsLike($like)
     {
         $query = "select distinct url from crawler where found = 1 and url like '%$like%'";
-        echo $query;
+        
         $stmt = $this->query($query);
         $return = array();
         while ($obj = $stmt->fetch(PDO::FETCH_OBJ)) {

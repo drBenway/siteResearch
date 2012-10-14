@@ -45,7 +45,7 @@ class PageCrawler
      */
     private function parsePage()
     {
-        echo "parsing";
+        
         $html = new simple_html_dom();
         $html->load($this->page);
         $links = $html->find('a[href]');

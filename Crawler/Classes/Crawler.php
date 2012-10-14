@@ -93,23 +93,23 @@ class Crawler
      */
     public function startCrawler()
     {
-        echo ("startCrawler");
+       
 
         while (count($this->db->getUrlsToDo()) > 0) {// Check db for urls that have not been parsed
-            echo ("in loop");
+            
             $starttime = microtime(true);
             $this->setCurrent_page($this->db->getUrlToWorkOn()); // get a page to parse
             $crwlr = new PHPCurlCrawler();
             $crwlr->init();
             $header = $crwlr->pageStatus($this->getCurrent_page());
-            echo ("header: ". $header);
+           
             if ($header == 200) {// check if the page exists
                 $this->db->setResponsHeader(200, $this->getCurrent_page());
                 $this->db->setUrlAsGood($this->getCurrent_page()); // set found in db to true
                 $crwlr->close();
                 
                 $crwlr->init();
-                echo ("current page:" . $crwlr->getContent($this->current_page));
+                
                 $page = new PageCrawler($crwlr->getContent($this->current_page)); // get page content
                
                 $crwlr->close();

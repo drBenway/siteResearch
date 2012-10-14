@@ -1,0 +1,381 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>phpDocumentor » \siteResearch\Crawler\Classes\PHP_Curl_Crawler</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/siteResearch.html"><i class="icon-th"></i> siteResearch</a></li>
+<li><a>Packages</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+<li><a href="../packages/PlaceLocalInclude.html"><i class="icon-folder-open"></i> PlaceLocalInclude</a></li>
+<li><a href="../packages/siteResearch.html"><i class="icon-folder-open"></i> siteResearch</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">145</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul><li>todo 
+                <span class="label label-info">8</span>
+</li></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public "><a href="#method_close" title="close :: close the connection"><span class="description">close the connection</span><pre>close()</pre></a></li>
+<li class="method public "><a href="#method_convertLink" title="convertLink :: convert link"><span class="description">convert link</span><pre>convertLink()</pre></a></li>
+<li class="method public "><a href="#method_getContent" title="getContent :: gets the content of url"><span class="description">gets the content of url</span><pre>getContent()</pre></a></li>
+<li class="method public "><a href="#method_getDomain" title="getDomain :: returns the domain from url"><span class="description">returns the domain from url</span><pre>getDomain()</pre></a></li>
+<li class="method public "><a href="#method_getInfo" title="getInfo :: get info on your last curl request"><span class="description">get info on your last curl request</span><pre>getInfo()</pre></a></li>
+<li class="method public "><a href="#method_getPageSize" title="getPageSize :: Gets the page size"><span class="description">Gets the page size</span><pre>getPageSize()</pre></a></li>
+<li class="method public "><a href="#method_getRedirectLocation" title="getRedirectLocation :: optain redirect url"><span class="description">optain redirect url</span><pre>getRedirectLocation()</pre></a></li>
+<li class="method public "><a href="#method_hasProtocol" title='hasProtocol :: returns true if a protocol is used in url
+&lt;p&gt;Exmpl.&lt;/p&gt;
+&lt;code&gt;
+$crl-&gt;hasProtocol("http://www.google.com");
+=&gt; returns true
+$crl-&gt;hasProtocol("www.google.com");
+=&gt; returns false
+&lt;/code&gt;'><span class="description">returns true if a protocol is used in url
+&lt;p&gt;Exmpl.&lt;/p&gt;
+&lt;code&gt;
+$crl-&gt;hasProtocol("http://www.google.com");
+=&gt; returns true
+$crl-&gt;hasProtocol("www.google.com");
+=&gt; returns false
+&lt;/code&gt;</span><pre>hasProtocol()</pre></a></li>
+<li class="method public "><a href="#method_httpHeaders" title="httpHeaders :: returns the http headers for a page"><span class="description">returns the http headers for a page</span><pre>httpHeaders()</pre></a></li>
+<li class="method public "><a href="#method_init" title="init :: initialize curl"><span class="description">initialize curl</span><pre>init()</pre></a></li>
+<li class="method public "><a href="#method_logIn" title="logIn :: login"><span class="description">login</span><pre>logIn()</pre></a></li>
+<li class="method public "><a href="#method_pageExists" title="pageExists :: checks http headers to detect if a pages exists"><span class="description">checks http headers to detect if a pages exists</span><pre>pageExists()</pre></a></li>
+<li class="method public "><a href="#method_pageMoved" title="pageMoved :: check if a page has been moved"><span class="description">check if a page has been moved</span><pre>pageMoved()</pre></a></li>
+<li class="method public "><a href="#method_pageStatus" title="pageStatus :: check http header return number"><span class="description">check http header return number</span><pre>pageStatus()</pre></a></li>
+<li class="method public "><a href="#method_postToPage" title="postToPage :: sends post var to url"><span class="description">sends post var to url</span><pre>postToPage()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties
+                    <ul></ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul>
+<li class="property private "><a href="#property_curl" title="$curl :: hold curl"><span class="description">hold curl</span><pre>$curl</pre></a></li>
+<li class="property private "><a href="#property_default_useragent" title="$default_useragent :: default user agent Mozilla"><span class="description">default user agent Mozilla</span><pre>$default_useragent</pre></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a id="\siteResearch\Crawler\Classes\PHP_Curl_Crawler"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/siteResearch.html">siteResearch</a></li>
+<li>
+<span class="divider">\</span><a href="../namespaces/siteResearch.Crawler.html">Crawler</a>
+</li>
+<li>
+<span class="divider">\</span><a href="../namespaces/siteResearch.Crawler.Classes.html">Classes</a>
+</li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/siteResearch.Crawler.Classes.PHP_Curl_Crawler.html">PHP_Curl_Crawler</a>
+</li>
+</ul>
+<div class="element class">
+<p class="short_description">Curl based class to crawl webpages</p>
+<div class="details">
+<div class="long_description"></div>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a id="method_close"></a><div class="element clickable method public method_close" data-toggle="collapse" data-target=".method_close .collapse">
+<h2>close the connection</h2>
+<pre>close() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_convertLink"></a><div class="element clickable method public method_convertLink" data-toggle="collapse" data-target=".method_convertLink .collapse">
+<h2>convert link</h2>
+<pre>convertLink(\siteResearch\Crawler\Classes\type $domain, \siteResearch\Crawler\Classes\type $url, \siteResearch\Crawler\Classes\type $link) : \siteResearch\Crawler\Classes\type</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$domain</h4>
+<code>\siteResearch\Crawler\Classes\type</code>
+</div>
+<div class="subelement argument">
+<h4>$url</h4>
+<code>\siteResearch\Crawler\Classes\type</code>
+</div>
+<div class="subelement argument">
+<h4>$link</h4>
+<code>\siteResearch\Crawler\Classes\type</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\siteResearch\Crawler\Classes\type</code></div>
+</div></div>
+</div>
+<a id="method_getContent"></a><div class="element clickable method public method_getContent" data-toggle="collapse" data-target=".method_getContent .collapse">
+<h2>gets the content of url</h2>
+<pre>getContent(String $url) : String</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$url</h4>
+<code>String</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>String</code></div>
+</div></div>
+</div>
+<a id="method_getDomain"></a><div class="element clickable method public method_getDomain" data-toggle="collapse" data-target=".method_getDomain .collapse">
+<h2>returns the domain from url</h2>
+<pre>getDomain(String $url) : String</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$url</h4>
+<code>String</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>String</code></div>
+</div></div>
+</div>
+<a id="method_getInfo"></a><div class="element clickable method public method_getInfo" data-toggle="collapse" data-target=".method_getInfo .collapse">
+<h2>get info on your last curl request</h2>
+<pre>getInfo($url) : object</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$url</h4></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>object</code></div>
+</div></div>
+</div>
+<a id="method_getPageSize"></a><div class="element clickable method public method_getPageSize" data-toggle="collapse" data-target=".method_getPageSize .collapse">
+<h2>Gets the page size</h2>
+<pre>getPageSize(String $url) : Int</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$url</h4>
+<code>String</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>Int</code></div>
+</div></div>
+</div>
+<a id="method_getRedirectLocation"></a><div class="element clickable method public method_getRedirectLocation" data-toggle="collapse" data-target=".method_getRedirectLocation .collapse">
+<h2>optain redirect url</h2>
+<pre>getRedirectLocation(\siteResearch\Crawler\Classes\type $url) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$url</h4>
+<code>\siteResearch\Crawler\Classes\type</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_hasProtocol"></a><div class="element clickable method public method_hasProtocol" data-toggle="collapse" data-target=".method_hasProtocol .collapse">
+<h2>returns true if a protocol is used in url
+&lt;p&gt;Exmpl.&lt;/p&gt;
+&lt;code&gt;
+$crl-&gt;hasProtocol("http://www.google.com");
+=&gt; returns true
+$crl-&gt;hasProtocol("www.google.com");
+=&gt; returns false
+&lt;/code&gt;</h2>
+<pre>hasProtocol(String $url) : Boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$url</h4>
+<code>String</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>Boolean</code></div>
+</div></div>
+</div>
+<a id="method_httpHeaders"></a><div class="element clickable method public method_httpHeaders" data-toggle="collapse" data-target=".method_httpHeaders .collapse">
+<h2>returns the http headers for a page</h2>
+<pre>httpHeaders(String $url) : Array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>requests a page,only the headers, to see if it's available</p></div>
+<table class="table table-bordered"><tr>
+<th>todo</th>
+<td>test speed vs pageheaders method</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$url</h4>
+<code>String</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>Array</code></div>
+</div></div>
+</div>
+<a id="method_init"></a><div class="element clickable method public method_init" data-toggle="collapse" data-target=".method_init .collapse">
+<h2>initialize curl</h2>
+<pre>init() : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_logIn"></a><div class="element clickable method public method_logIn" data-toggle="collapse" data-target=".method_logIn .collapse">
+<h2>login</h2>
+<pre>logIn(\siteResearch\Crawler\Classes\type $loginActionUrl, \siteResearch\Crawler\Classes\type $parameters) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$loginActionUrl</h4>
+<code>\siteResearch\Crawler\Classes\type</code>
+</div>
+<div class="subelement argument">
+<h4>$parameters</h4>
+<code>\siteResearch\Crawler\Classes\type</code>
+</div>
+</div></div>
+</div>
+<a id="method_pageExists"></a><div class="element clickable method public method_pageExists" data-toggle="collapse" data-target=".method_pageExists .collapse">
+<h2>checks http headers to detect if a pages exists</h2>
+<pre>pageExists(String $url) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$url</h4>
+<code>String</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>boolean</code></div>
+</div></div>
+</div>
+<a id="method_pageMoved"></a><div class="element clickable method public method_pageMoved" data-toggle="collapse" data-target=".method_pageMoved .collapse">
+<h2>check if a page has been moved</h2>
+<pre>pageMoved(\siteResearch\Crawler\Classes\type $url) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$url</h4>
+<code>\siteResearch\Crawler\Classes\type</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>boolean</code></div>
+</div></div>
+</div>
+<a id="method_pageStatus"></a><div class="element clickable method public method_pageStatus" data-toggle="collapse" data-target=".method_pageStatus .collapse">
+<h2>check http header return number</h2>
+<pre>pageStatus(\siteResearch\Crawler\Classes\type $url) : int</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$url</h4>
+<code>\siteResearch\Crawler\Classes\type</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>int</code></div>
+</div></div>
+</div>
+<a id="method_postToPage"></a><div class="element clickable method public method_postToPage" data-toggle="collapse" data-target=".method_postToPage .collapse">
+<h2>sends post var to url</h2>
+<pre>postToPage(String $url, String $postvar) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$url</h4>
+<code>String</code>
+</div>
+<div class="subelement argument">
+<h4>$postvar</h4>
+<code>String</code>
+</div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a id="property_curl"> </a><div class="element clickable property private property_curl" data-toggle="collapse" data-target=".property_curl .collapse">
+<h2>hold curl</h2>
+<pre>$curl : \siteResearch\Crawler\Classes\type</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_default_useragent"> </a><div class="element clickable property private property_default_useragent" data-toggle="collapse" data-target=".property_default_useragent .collapse">
+<h2>default user agent Mozilla</h2>
+<pre>$default_useragent : \siteResearch\Crawler\Classes\type</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a10</a> and<br>
+            generated on 2012-10-12T07:52:14+02:00.<br></footer></div>
+</div>
+</body>
+</html>

@@ -1,5 +1,0 @@
-/* xbl */
-module{
-    -moz-binding : url('chrome://module/content/xbl/modulebindings.xbl#module');
-    display:block;
-}

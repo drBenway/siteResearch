@@ -1,0 +1,936 @@
+<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>phpDocumentor » \simple_html_dom_nodeTest</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Packages</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+<li><a href="../packages/PlaceLocalInclude.html"><i class="icon-folder-open"></i> PlaceLocalInclude</a></li>
+<li><a href="../packages/siteResearch.html"><i class="icon-folder-open"></i> siteResearch</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">344</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul><li>todo 
+                <span class="label label-info">114</span>
+</li></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods</li>
+<li class="method public "><a href="#testChildNodes" title="testChildNodes :: "><span class="description">testChildNodes()
+        </span><pre>testChildNodes()</pre></a></li>
+<li class="method public "><a href="#testChildren" title="testChildren :: "><span class="description">testChildren()
+        </span><pre>testChildren()</pre></a></li>
+<li class="method public "><a href="#testClear" title="testClear :: "><span class="description">testClear()
+        </span><pre>testClear()</pre></a></li>
+<li class="method public "><a href="#testConvert_text" title="testConvert_text :: "><span class="description">testConvert_text()
+        </span><pre>testConvert_text()</pre></a></li>
+<li class="method public "><a href="#testDump" title="testDump :: "><span class="description">testDump()
+        </span><pre>testDump()</pre></a></li>
+<li class="method public "><a href="#testDump_node" title="testDump_node :: "><span class="description">testDump_node()
+        </span><pre>testDump_node()</pre></a></li>
+<li class="method public "><a href="#testFind" title="testFind :: "><span class="description">testFind()
+        </span><pre>testFind()</pre></a></li>
+<li class="method public "><a href="#testFind_ancestor_tag" title="testFind_ancestor_tag :: "><span class="description">testFind_ancestor_tag()
+        </span><pre>testFind_ancestor_tag()</pre></a></li>
+<li class="method public "><a href="#testFirstChild" title="testFirstChild :: "><span class="description">testFirstChild()
+        </span><pre>testFirstChild()</pre></a></li>
+<li class="method public "><a href="#testFirst_child" title="testFirst_child :: "><span class="description">testFirst_child()
+        </span><pre>testFirst_child()</pre></a></li>
+<li class="method public "><a href="#testGetAllAttributes" title="testGetAllAttributes :: "><span class="description">testGetAllAttributes()
+        </span><pre>testGetAllAttributes()</pre></a></li>
+<li class="method public "><a href="#testGetAttribute" title="testGetAttribute :: "><span class="description">testGetAttribute()
+        </span><pre>testGetAttribute()</pre></a></li>
+<li class="method public "><a href="#testGetElementById" title="testGetElementById :: "><span class="description">testGetElementById()
+        </span><pre>testGetElementById()</pre></a></li>
+<li class="method public "><a href="#testGetElementByTagName" title="testGetElementByTagName :: "><span class="description">testGetElementByTagName()
+        </span><pre>testGetElementByTagName()</pre></a></li>
+<li class="method public "><a href="#testGetElementsById" title="testGetElementsById :: "><span class="description">testGetElementsById()
+        </span><pre>testGetElementsById()</pre></a></li>
+<li class="method public "><a href="#testGetElementsByTagName" title="testGetElementsByTagName :: "><span class="description">testGetElementsByTagName()
+        </span><pre>testGetElementsByTagName()</pre></a></li>
+<li class="method public "><a href="#testHasAttribute" title="testHasAttribute :: "><span class="description">testHasAttribute()
+        </span><pre>testHasAttribute()</pre></a></li>
+<li class="method public "><a href="#testInnertext" title="testInnertext :: "><span class="description">testInnertext()
+        </span><pre>testInnertext()</pre></a></li>
+<li class="method public "><a href="#testIs_utf8" title="testIs_utf8 :: "><span class="description">testIs_utf8()
+        </span><pre>testIs_utf8()</pre></a></li>
+<li class="method public "><a href="#testLastChild" title="testLastChild :: "><span class="description">testLastChild()
+        </span><pre>testLastChild()</pre></a></li>
+<li class="method public "><a href="#testLast_child" title="testLast_child :: "><span class="description">testLast_child()
+        </span><pre>testLast_child()</pre></a></li>
+<li class="method public "><a href="#testMakeup" title="testMakeup :: "><span class="description">testMakeup()
+        </span><pre>testMakeup()</pre></a></li>
+<li class="method public "><a href="#testNextSibling" title="testNextSibling :: "><span class="description">testNextSibling()
+        </span><pre>testNextSibling()</pre></a></li>
+<li class="method public "><a href="#testNext_sibling" title="testNext_sibling :: "><span class="description">testNext_sibling()
+        </span><pre>testNext_sibling()</pre></a></li>
+<li class="method public "><a href="#testOutertext" title="testOutertext :: "><span class="description">testOutertext()
+        </span><pre>testOutertext()</pre></a></li>
+<li class="method public "><a href="#testParent" title="testParent :: "><span class="description">testParent()
+        </span><pre>testParent()</pre></a></li>
+<li class="method public "><a href="#testParentNode" title="testParentNode :: "><span class="description">testParentNode()
+        </span><pre>testParentNode()</pre></a></li>
+<li class="method public "><a href="#testPrev_sibling" title="testPrev_sibling :: "><span class="description">testPrev_sibling()
+        </span><pre>testPrev_sibling()</pre></a></li>
+<li class="method public "><a href="#testPreviousSibling" title="testPreviousSibling :: "><span class="description">testPreviousSibling()
+        </span><pre>testPreviousSibling()</pre></a></li>
+<li class="method public "><a href="#testRemoveAttribute" title="testRemoveAttribute :: "><span class="description">testRemoveAttribute()
+        </span><pre>testRemoveAttribute()</pre></a></li>
+<li class="method public "><a href="#testSetAttribute" title="testSetAttribute :: "><span class="description">testSetAttribute()
+        </span><pre>testSetAttribute()</pre></a></li>
+<li class="method public "><a href="#testText" title="testText :: "><span class="description">testText()
+        </span><pre>testText()</pre></a></li>
+<li class="method public "><a href="#testXmltext" title="testXmltext :: "><span class="description">testXmltext()
+        </span><pre>testXmltext()</pre></a></li>
+<li class="method public "><a href="#test__destruct" title="test__destruct :: "><span class="description">test__destruct()
+        </span><pre>test__destruct()</pre></a></li>
+<li class="method public "><a href="#test__get" title="test__get :: "><span class="description">test__get()
+        </span><pre>test__get()</pre></a></li>
+<li class="method public "><a href="#test__isset" title="test__isset :: "><span class="description">test__isset()
+        </span><pre>test__isset()</pre></a></li>
+<li class="method public "><a href="#test__set" title="test__set :: "><span class="description">test__set()
+        </span><pre>test__set()</pre></a></li>
+<li class="method public "><a href="#test__toString" title="test__toString :: "><span class="description">test__toString()
+        </span><pre>test__toString()</pre></a></li>
+<li class="method public "><a href="#test__unset" title="test__unset :: "><span class="description">test__unset()
+        </span><pre>test__unset()</pre></a></li>
+<li class="nav-header protected">» Protected</li>
+<li class="method protected "><a href="#setUp" title="setUp :: Sets up the fixture, for example, opens a network connection."><span class="description">Sets up the fixture, for example, opens a network connection.</span><pre>setUp()</pre></a></li>
+<li class="method protected "><a href="#tearDown" title="tearDown :: Tears down the fixture, for example, closes a network connection."><span class="description">Tears down the fixture, for example, closes a network connection.</span><pre>tearDown()</pre></a></li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties</li>
+<li class="nav-header protected">» Protected</li>
+<li class="property protected "><a href="#%24object" title="$object :: "><span class="description">$object</span><pre>$object</pre></a></li>
+</ul>
+</div>
+<div class="span8">
+<a name="%5Csimple_html_dom_nodeTest" id="\simple_html_dom_nodeTest"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/global.html">global</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/simple_html_dom_nodeTest.html">simple_html_dom_nodeTest</a>
+</li>
+</ul>
+<div href="../classes/simple_html_dom_nodeTest.html" class="element class">
+<p class="short_description">Test class for simple_html_dom_node.</p>
+<div class="details">
+<p class="long_description"><p>Generated by PHPUnit on 2012-10-09 at 14:49:52.</p></p>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a name="testChildNodes" id="testChildNodes"></a><div class="element clickable method public testChildNodes" data-toggle="collapse" data-target=".testChildNodes .collapse">
+<h2>testChildNodes()
+        </h2>
+<pre>testChildNodes() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\simple_html_dom_node::childNodes</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testChildNodes().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testChildren" id="testChildren"></a><div class="element clickable method public testChildren" data-toggle="collapse" data-target=".testChildren .collapse">
+<h2>testChildren()
+        </h2>
+<pre>testChildren() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\simple_html_dom_node::children</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testChildren().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testClear" id="testClear"></a><div class="element clickable method public testClear" data-toggle="collapse" data-target=".testClear .collapse">
+<h2>testClear()
+        </h2>
+<pre>testClear() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\simple_html_dom_node::clear</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testClear().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testConvert_text" id="testConvert_text"></a><div class="element clickable method public testConvert_text" data-toggle="collapse" data-target=".testConvert_text .collapse">
+<h2>testConvert_text()
+        </h2>
+<pre>testConvert_text() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\simple_html_dom_node::convert_text</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testConvert_text().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testDump" id="testDump"></a><div class="element clickable method public testDump" data-toggle="collapse" data-target=".testDump .collapse">
+<h2>testDump()
+        </h2>
+<pre>testDump() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\simple_html_dom_node::dump</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testDump().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testDump_node" id="testDump_node"></a><div class="element clickable method public testDump_node" data-toggle="collapse" data-target=".testDump_node .collapse">
+<h2>testDump_node()
+        </h2>
+<pre>testDump_node() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\simple_html_dom_node::dump_node</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testDump_node().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testFind" id="testFind"></a><div class="element clickable method public testFind" data-toggle="collapse" data-target=".testFind .collapse">
+<h2>testFind()
+        </h2>
+<pre>testFind() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\simple_html_dom_node::find</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testFind().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testFind_ancestor_tag" id="testFind_ancestor_tag"></a><div class="element clickable method public testFind_ancestor_tag" data-toggle="collapse" data-target=".testFind_ancestor_tag .collapse">
+<h2>testFind_ancestor_tag()
+        </h2>
+<pre>testFind_ancestor_tag() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\simple_html_dom_node::find_ancestor_tag</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testFind_ancestor_tag().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testFirstChild" id="testFirstChild"></a><div class="element clickable method public testFirstChild" data-toggle="collapse" data-target=".testFirstChild .collapse">
+<h2>testFirstChild()
+        </h2>
+<pre>testFirstChild() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\simple_html_dom_node::firstChild</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testFirstChild().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testFirst_child" id="testFirst_child"></a><div class="element clickable method public testFirst_child" data-toggle="collapse" data-target=".testFirst_child .collapse">
+<h2>testFirst_child()
+        </h2>
+<pre>testFirst_child() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\simple_html_dom_node::first_child</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testFirst_child().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testGetAllAttributes" id="testGetAllAttributes"></a><div class="element clickable method public testGetAllAttributes" data-toggle="collapse" data-target=".testGetAllAttributes .collapse">
+<h2>testGetAllAttributes()
+        </h2>
+<pre>testGetAllAttributes() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\simple_html_dom_node::getAllAttributes</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testGetAllAttributes().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testGetAttribute" id="testGetAttribute"></a><div class="element clickable method public testGetAttribute" data-toggle="collapse" data-target=".testGetAttribute .collapse">
+<h2>testGetAttribute()
+        </h2>
+<pre>testGetAttribute() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\simple_html_dom_node::getAttribute</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testGetAttribute().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testGetElementById" id="testGetElementById"></a><div class="element clickable method public testGetElementById" data-toggle="collapse" data-target=".testGetElementById .collapse">
+<h2>testGetElementById()
+        </h2>
+<pre>testGetElementById() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\simple_html_dom_node::getElementById</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testGetElementById().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testGetElementByTagName" id="testGetElementByTagName"></a><div class="element clickable method public testGetElementByTagName" data-toggle="collapse" data-target=".testGetElementByTagName .collapse">
+<h2>testGetElementByTagName()
+        </h2>
+<pre>testGetElementByTagName() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\simple_html_dom_node::getElementByTagName</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testGetElementByTagName().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testGetElementsById" id="testGetElementsById"></a><div class="element clickable method public testGetElementsById" data-toggle="collapse" data-target=".testGetElementsById .collapse">
+<h2>testGetElementsById()
+        </h2>
+<pre>testGetElementsById() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\simple_html_dom_node::getElementsById</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testGetElementsById().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testGetElementsByTagName" id="testGetElementsByTagName"></a><div class="element clickable method public testGetElementsByTagName" data-toggle="collapse" data-target=".testGetElementsByTagName .collapse">
+<h2>testGetElementsByTagName()
+        </h2>
+<pre>testGetElementsByTagName() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\simple_html_dom_node::getElementsByTagName</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testGetElementsByTagName().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testHasAttribute" id="testHasAttribute"></a><div class="element clickable method public testHasAttribute" data-toggle="collapse" data-target=".testHasAttribute .collapse">
+<h2>testHasAttribute()
+        </h2>
+<pre>testHasAttribute() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\simple_html_dom_node::hasAttribute</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testHasAttribute().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testInnertext" id="testInnertext"></a><div class="element clickable method public testInnertext" data-toggle="collapse" data-target=".testInnertext .collapse">
+<h2>testInnertext()
+        </h2>
+<pre>testInnertext() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\simple_html_dom_node::innertext</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testInnertext().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testIs_utf8" id="testIs_utf8"></a><div class="element clickable method public testIs_utf8" data-toggle="collapse" data-target=".testIs_utf8 .collapse">
+<h2>testIs_utf8()
+        </h2>
+<pre>testIs_utf8() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\simple_html_dom_node::is_utf8</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testIs_utf8().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testLastChild" id="testLastChild"></a><div class="element clickable method public testLastChild" data-toggle="collapse" data-target=".testLastChild .collapse">
+<h2>testLastChild()
+        </h2>
+<pre>testLastChild() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\simple_html_dom_node::lastChild</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testLastChild().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testLast_child" id="testLast_child"></a><div class="element clickable method public testLast_child" data-toggle="collapse" data-target=".testLast_child .collapse">
+<h2>testLast_child()
+        </h2>
+<pre>testLast_child() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\simple_html_dom_node::last_child</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testLast_child().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testMakeup" id="testMakeup"></a><div class="element clickable method public testMakeup" data-toggle="collapse" data-target=".testMakeup .collapse">
+<h2>testMakeup()
+        </h2>
+<pre>testMakeup() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\simple_html_dom_node::makeup</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testMakeup().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testNextSibling" id="testNextSibling"></a><div class="element clickable method public testNextSibling" data-toggle="collapse" data-target=".testNextSibling .collapse">
+<h2>testNextSibling()
+        </h2>
+<pre>testNextSibling() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\simple_html_dom_node::nextSibling</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testNextSibling().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testNext_sibling" id="testNext_sibling"></a><div class="element clickable method public testNext_sibling" data-toggle="collapse" data-target=".testNext_sibling .collapse">
+<h2>testNext_sibling()
+        </h2>
+<pre>testNext_sibling() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\simple_html_dom_node::next_sibling</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testNext_sibling().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testOutertext" id="testOutertext"></a><div class="element clickable method public testOutertext" data-toggle="collapse" data-target=".testOutertext .collapse">
+<h2>testOutertext()
+        </h2>
+<pre>testOutertext() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\simple_html_dom_node::outertext</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testOutertext().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testParent" id="testParent"></a><div class="element clickable method public testParent" data-toggle="collapse" data-target=".testParent .collapse">
+<h2>testParent()
+        </h2>
+<pre>testParent() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\simple_html_dom_node::parent</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testParent().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testParentNode" id="testParentNode"></a><div class="element clickable method public testParentNode" data-toggle="collapse" data-target=".testParentNode .collapse">
+<h2>testParentNode()
+        </h2>
+<pre>testParentNode() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\simple_html_dom_node::parentNode</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testParentNode().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testPrev_sibling" id="testPrev_sibling"></a><div class="element clickable method public testPrev_sibling" data-toggle="collapse" data-target=".testPrev_sibling .collapse">
+<h2>testPrev_sibling()
+        </h2>
+<pre>testPrev_sibling() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\simple_html_dom_node::prev_sibling</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testPrev_sibling().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testPreviousSibling" id="testPreviousSibling"></a><div class="element clickable method public testPreviousSibling" data-toggle="collapse" data-target=".testPreviousSibling .collapse">
+<h2>testPreviousSibling()
+        </h2>
+<pre>testPreviousSibling() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\simple_html_dom_node::previousSibling</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testPreviousSibling().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testRemoveAttribute" id="testRemoveAttribute"></a><div class="element clickable method public testRemoveAttribute" data-toggle="collapse" data-target=".testRemoveAttribute .collapse">
+<h2>testRemoveAttribute()
+        </h2>
+<pre>testRemoveAttribute() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\simple_html_dom_node::removeAttribute</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testRemoveAttribute().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testSetAttribute" id="testSetAttribute"></a><div class="element clickable method public testSetAttribute" data-toggle="collapse" data-target=".testSetAttribute .collapse">
+<h2>testSetAttribute()
+        </h2>
+<pre>testSetAttribute() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\simple_html_dom_node::setAttribute</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testSetAttribute().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testText" id="testText"></a><div class="element clickable method public testText" data-toggle="collapse" data-target=".testText .collapse">
+<h2>testText()
+        </h2>
+<pre>testText() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\simple_html_dom_node::text</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testText().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testXmltext" id="testXmltext"></a><div class="element clickable method public testXmltext" data-toggle="collapse" data-target=".testXmltext .collapse">
+<h2>testXmltext()
+        </h2>
+<pre>testXmltext() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\simple_html_dom_node::xmltext</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testXmltext().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="test__destruct" id="test__destruct"></a><div class="element clickable method public test__destruct" data-toggle="collapse" data-target=".test__destruct .collapse">
+<h2>test__destruct()
+        </h2>
+<pre>test__destruct() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\simple_html_dom_node::__destruct</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement test__destruct().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="test__get" id="test__get"></a><div class="element clickable method public test__get" data-toggle="collapse" data-target=".test__get .collapse">
+<h2>test__get()
+        </h2>
+<pre>test__get() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\simple_html_dom_node::__get</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement test__get().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="test__isset" id="test__isset"></a><div class="element clickable method public test__isset" data-toggle="collapse" data-target=".test__isset .collapse">
+<h2>test__isset()
+        </h2>
+<pre>test__isset() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\simple_html_dom_node::__isset</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement test__isset().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="test__set" id="test__set"></a><div class="element clickable method public test__set" data-toggle="collapse" data-target=".test__set .collapse">
+<h2>test__set()
+        </h2>
+<pre>test__set() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\simple_html_dom_node::__set</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement test__set().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="test__toString" id="test__toString"></a><div class="element clickable method public test__toString" data-toggle="collapse" data-target=".test__toString .collapse">
+<h2>test__toString()
+        </h2>
+<pre>test__toString() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\simple_html_dom_node::__toString</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement test__toString().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="test__unset" id="test__unset"></a><div class="element clickable method public test__unset" data-toggle="collapse" data-target=".test__unset .collapse">
+<h2>test__unset()
+        </h2>
+<pre>test__unset() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\simple_html_dom_node::__unset</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement test__unset().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="setUp" id="setUp"></a><div class="element clickable method protected setUp" data-toggle="collapse" data-target=".setUp .collapse">
+<h2>Sets up the fixture, for example, opens a network connection.</h2>
+<pre>setUp() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"><p>This method is called before a test is executed.</p></p></div></div>
+</div>
+<a name="tearDown" id="tearDown"></a><div class="element clickable method protected tearDown" data-toggle="collapse" data-target=".tearDown .collapse">
+<h2>Tears down the fixture, for example, closes a network connection.</h2>
+<pre>tearDown() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"><p>This method is called after a test is executed.</p></p></div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a name="%24object" id="$object"> </a><div class="element clickable property protected $object" data-toggle="collapse" data-target=".$object .collapse">
+<h2>$object</h2>
+<pre>$object : <a href="../classes/simple_html_dom_node.html">\simple_html_dom_node</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a7</a> and<br>
+            generated on 2012-10-10T07:01:16+02:00.<br></footer></div>
+</div>
+</body>
+</html>

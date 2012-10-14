@@ -1,0 +1,417 @@
+<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>phpDocumentor » \CrawlerSettingsTest</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Packages</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+<li><a href="../packages/PlaceLocalInclude.html"><i class="icon-folder-open"></i> PlaceLocalInclude</a></li>
+<li><a href="../packages/siteResearch.html"><i class="icon-folder-open"></i> siteResearch</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">344</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul><li>todo 
+                <span class="label label-info">114</span>
+</li></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods</li>
+<li class="method public "><a href="#testGetCurl" title="testGetCurl :: "><span class="description">testGetCurl()
+        </span><pre>testGetCurl()</pre></a></li>
+<li class="method public "><a href="#testGetDb" title="testGetDb :: "><span class="description">testGetDb()
+        </span><pre>testGetDb()</pre></a></li>
+<li class="method public "><a href="#testGetFilters" title="testGetFilters :: "><span class="description">testGetFilters()
+        </span><pre>testGetFilters()</pre></a></li>
+<li class="method public "><a href="#testGetStripIndex" title="testGetStripIndex :: "><span class="description">testGetStripIndex()
+        </span><pre>testGetStripIndex()</pre></a></li>
+<li class="method public "><a href="#testGetStripParameters" title="testGetStripParameters :: "><span class="description">testGetStripParameters()
+        </span><pre>testGetStripParameters()</pre></a></li>
+<li class="method public "><a href="#testGetTweaks" title="testGetTweaks :: "><span class="description">testGetTweaks()
+        </span><pre>testGetTweaks()</pre></a></li>
+<li class="method public "><a href="#testGetType" title="testGetType :: "><span class="description">testGetType()
+        </span><pre>testGetType()</pre></a></li>
+<li class="method public "><a href="#testGetUrl" title="testGetUrl :: "><span class="description">testGetUrl()
+        </span><pre>testGetUrl()</pre></a></li>
+<li class="method public "><a href="#testSetCurl" title="testSetCurl :: "><span class="description">testSetCurl()
+        </span><pre>testSetCurl()</pre></a></li>
+<li class="method public "><a href="#testSetDb" title="testSetDb :: "><span class="description">testSetDb()
+        </span><pre>testSetDb()</pre></a></li>
+<li class="method public "><a href="#testSetFilters" title="testSetFilters :: "><span class="description">testSetFilters()
+        </span><pre>testSetFilters()</pre></a></li>
+<li class="method public "><a href="#testSetStripIndex" title="testSetStripIndex :: "><span class="description">testSetStripIndex()
+        </span><pre>testSetStripIndex()</pre></a></li>
+<li class="method public "><a href="#testSetStripParameters" title="testSetStripParameters :: "><span class="description">testSetStripParameters()
+        </span><pre>testSetStripParameters()</pre></a></li>
+<li class="method public "><a href="#testSetTweaks" title="testSetTweaks :: "><span class="description">testSetTweaks()
+        </span><pre>testSetTweaks()</pre></a></li>
+<li class="method public "><a href="#testSetType" title="testSetType :: "><span class="description">testSetType()
+        </span><pre>testSetType()</pre></a></li>
+<li class="method public "><a href="#testSetUrl" title="testSetUrl :: "><span class="description">testSetUrl()
+        </span><pre>testSetUrl()</pre></a></li>
+<li class="nav-header protected">» Protected</li>
+<li class="method protected "><a href="#setUp" title="setUp :: Sets up the fixture, for example, opens a network connection."><span class="description">Sets up the fixture, for example, opens a network connection.</span><pre>setUp()</pre></a></li>
+<li class="method protected "><a href="#tearDown" title="tearDown :: Tears down the fixture, for example, closes a network connection."><span class="description">Tears down the fixture, for example, closes a network connection.</span><pre>tearDown()</pre></a></li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties</li>
+<li class="nav-header protected">» Protected</li>
+<li class="property protected "><a href="#%24object" title="$object :: "><span class="description">$object</span><pre>$object</pre></a></li>
+</ul>
+</div>
+<div class="span8">
+<a name="%5CCrawlerSettingsTest" id="\CrawlerSettingsTest"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/global.html">global</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/CrawlerSettingsTest.html">CrawlerSettingsTest</a>
+</li>
+</ul>
+<div href="../classes/CrawlerSettingsTest.html" class="element class">
+<p class="short_description">Test class for CrawlerSettings.</p>
+<div class="details">
+<p class="long_description"><p>Generated by PHPUnit on 2012-10-09 at 14:49:51.</p></p>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a name="testGetCurl" id="testGetCurl"></a><div class="element clickable method public testGetCurl" data-toggle="collapse" data-target=".testGetCurl .collapse">
+<h2>testGetCurl()
+        </h2>
+<pre>testGetCurl() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\CrawlerSettings::getCurl</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testGetCurl().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testGetDb" id="testGetDb"></a><div class="element clickable method public testGetDb" data-toggle="collapse" data-target=".testGetDb .collapse">
+<h2>testGetDb()
+        </h2>
+<pre>testGetDb() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\CrawlerSettings::getDb</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testGetDb().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testGetFilters" id="testGetFilters"></a><div class="element clickable method public testGetFilters" data-toggle="collapse" data-target=".testGetFilters .collapse">
+<h2>testGetFilters()
+        </h2>
+<pre>testGetFilters() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\CrawlerSettings::getFilters</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testGetFilters().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testGetStripIndex" id="testGetStripIndex"></a><div class="element clickable method public testGetStripIndex" data-toggle="collapse" data-target=".testGetStripIndex .collapse">
+<h2>testGetStripIndex()
+        </h2>
+<pre>testGetStripIndex() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\CrawlerSettings::getStripIndex</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testGetStripIndex().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testGetStripParameters" id="testGetStripParameters"></a><div class="element clickable method public testGetStripParameters" data-toggle="collapse" data-target=".testGetStripParameters .collapse">
+<h2>testGetStripParameters()
+        </h2>
+<pre>testGetStripParameters() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\CrawlerSettings::getStripParameters</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testGetStripParameters().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testGetTweaks" id="testGetTweaks"></a><div class="element clickable method public testGetTweaks" data-toggle="collapse" data-target=".testGetTweaks .collapse">
+<h2>testGetTweaks()
+        </h2>
+<pre>testGetTweaks() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\CrawlerSettings::getTweaks</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testGetTweaks().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testGetType" id="testGetType"></a><div class="element clickable method public testGetType" data-toggle="collapse" data-target=".testGetType .collapse">
+<h2>testGetType()
+        </h2>
+<pre>testGetType() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\CrawlerSettings::getType</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testGetType().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testGetUrl" id="testGetUrl"></a><div class="element clickable method public testGetUrl" data-toggle="collapse" data-target=".testGetUrl .collapse">
+<h2>testGetUrl()
+        </h2>
+<pre>testGetUrl() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>covers</th>
+<td>\global\CrawlerSettings::getUrl</td>
+</tr></table>
+</div></div>
+</div>
+<a name="testSetCurl" id="testSetCurl"></a><div class="element clickable method public testSetCurl" data-toggle="collapse" data-target=".testSetCurl .collapse">
+<h2>testSetCurl()
+        </h2>
+<pre>testSetCurl() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\CrawlerSettings::setCurl</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testSetCurl().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testSetDb" id="testSetDb"></a><div class="element clickable method public testSetDb" data-toggle="collapse" data-target=".testSetDb .collapse">
+<h2>testSetDb()
+        </h2>
+<pre>testSetDb() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>covers</th>
+<td>\global\CrawlerSettings::setDb</td>
+</tr></table>
+</div></div>
+</div>
+<a name="testSetFilters" id="testSetFilters"></a><div class="element clickable method public testSetFilters" data-toggle="collapse" data-target=".testSetFilters .collapse">
+<h2>testSetFilters()
+        </h2>
+<pre>testSetFilters() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\CrawlerSettings::setFilters</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testSetFilters().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testSetStripIndex" id="testSetStripIndex"></a><div class="element clickable method public testSetStripIndex" data-toggle="collapse" data-target=".testSetStripIndex .collapse">
+<h2>testSetStripIndex()
+        </h2>
+<pre>testSetStripIndex() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>covers</th>
+<td>\global\CrawlerSettings::setStripIndex</td>
+</tr></table>
+</div></div>
+</div>
+<a name="testSetStripParameters" id="testSetStripParameters"></a><div class="element clickable method public testSetStripParameters" data-toggle="collapse" data-target=".testSetStripParameters .collapse">
+<h2>testSetStripParameters()
+        </h2>
+<pre>testSetStripParameters() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>covers</th>
+<td>\global\CrawlerSettings::setStripParameters</td>
+</tr></table>
+</div></div>
+</div>
+<a name="testSetTweaks" id="testSetTweaks"></a><div class="element clickable method public testSetTweaks" data-toggle="collapse" data-target=".testSetTweaks .collapse">
+<h2>testSetTweaks()
+        </h2>
+<pre>testSetTweaks() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered">
+<tr>
+<th>covers</th>
+<td>\global\CrawlerSettings::setTweaks</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Implement testSetTweaks().</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a name="testSetType" id="testSetType"></a><div class="element clickable method public testSetType" data-toggle="collapse" data-target=".testSetType .collapse">
+<h2>testSetType()
+        </h2>
+<pre>testSetType() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>covers</th>
+<td>\global\CrawlerSettings::setType</td>
+</tr></table>
+</div></div>
+</div>
+<a name="testSetUrl" id="testSetUrl"></a><div class="element clickable method public testSetUrl" data-toggle="collapse" data-target=".testSetUrl .collapse">
+<h2>testSetUrl()
+        </h2>
+<pre>testSetUrl() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<table class="table table-bordered"><tr>
+<th>covers</th>
+<td>\global\CrawlerSettings::setUrl</td>
+</tr></table>
+</div></div>
+</div>
+<a name="setUp" id="setUp"></a><div class="element clickable method protected setUp" data-toggle="collapse" data-target=".setUp .collapse">
+<h2>Sets up the fixture, for example, opens a network connection.</h2>
+<pre>setUp() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"><p>This method is called before a test is executed.</p></p></div></div>
+</div>
+<a name="tearDown" id="tearDown"></a><div class="element clickable method protected tearDown" data-toggle="collapse" data-target=".tearDown .collapse">
+<h2>Tears down the fixture, for example, closes a network connection.</h2>
+<pre>tearDown() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"><p>This method is called after a test is executed.</p></p></div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a name="%24object" id="$object"> </a><div class="element clickable property protected $object" data-toggle="collapse" data-target=".$object .collapse">
+<h2>$object</h2>
+<pre>$object : <a href="../classes/CrawlerSettings.html">\CrawlerSettings</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a7</a> and<br>
+            generated on 2012-10-10T07:01:16+02:00.<br></footer></div>
+</div>
+</body>
+</html>

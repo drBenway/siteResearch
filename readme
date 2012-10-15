@@ -1,1 +1,11 @@
-test
+siteResearch:
+=============
+
+Technical requirements:
+-----------------------
+* PHP
+* MYSql
+* Terminal
+
+Your environement should support running PHP from the command line. 
+A recent version of PHP 5.3 or up is needed as well as a recent version of MYSql.

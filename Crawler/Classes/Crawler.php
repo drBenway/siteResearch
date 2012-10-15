@@ -142,7 +142,7 @@ class Crawler
      */
     public function addUrls($urls, $page)
     {
-        print_r($urls);
+        
         if ((array) $urls !== $urls) {
 
         } else {

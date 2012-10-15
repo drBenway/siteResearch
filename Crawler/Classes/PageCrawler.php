@@ -65,7 +65,7 @@ class PageCrawler
     public function getPageUrls()
     {
         $this->parsePage();
-        print_r($this->urls);
+        
         return $this->urls;
     }
 

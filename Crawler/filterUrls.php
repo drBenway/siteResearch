@@ -14,7 +14,7 @@ $shortopts .= "a:"; // append everything behind a to config file
 $shortopts .= "w:"; // write everything behind w to config file
 $shortopts .= "r"; // echo config file
 $options = getopt($shortopts);
-print_r($options);
+
 
 if (array_key_exists("r", $options)) {
 
@@ -36,7 +36,7 @@ function echoConfig()
 function writeConfig($options)
 {
     $strings = explode(",", $options);
-    $dom = new DOMDocument();
+    $dom = new \DOMDocument();
     $dom->formatOutput = true;
     $root = $dom->createElement("FilterExternalUrls");
     $dom->appendChild($root);
@@ -56,7 +56,7 @@ function writeConfig($options)
 function appendConfig($options)
 {
     $strings = explode(",", $options);
-    $dom = new DOMDocument();
+    $dom = new \DOMDocument();
     $dom->load("Filters/FilterExternalUrls.xml");
     $root = $dom->getElementsByTagName("FilterExternalUrls")->item(0);
     foreach ($strings as $string) {

@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 <meta charset="utf-8">
-<title>phpDocumentor » \Crawler\Tweaks\TweakRunner</title>
+<title>phpDocumentor » \Crawler\Export\SitemapExport</title>
 <meta name="author" content="Mike van Riel">
 <meta name="description" content="">
 <link href="../css/template.css" rel="stylesheet" media="all">
@@ -62,11 +62,37 @@
 <li class="nav-header">
 <i class="icon-custom icon-method"></i> Methods
                     <ul>
-<li class="method public "><a href="#method___construct" title="__construct :: constructor"><span class="description">constructor</span><pre>__construct()</pre></a></li>
-<li class="method public "><a href="#method_getTweakList" title="getTweakList :: returns all the filters found in the config xml"><span class="description">returns all the filters found in the config xml</span><pre>getTweakList()</pre></a></li>
-<li class="method public "><a href="#method_init" title="init :: parse the config xml"><span class="description">parse the config xml</span><pre>init()</pre></a></li>
-<li class="method public "><a href="#method_run" title="run :: runs provided set of urls trough a list of tweaks"><span class="description">runs provided set of urls trough a list of tweaks</span><pre>run()</pre></a></li>
+<li class="method public "><a href="#method___construct" title="__construct :: "><span class="description">__construct()
+        </span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#method_export" title='export :: Writes the sitemap file to a specific path
+&lt;code&gt;
+$sitemap-&gt;writeSitemap("sitemap.xml");
+&lt;/code&gt;
+{@source}'><span class="description">Writes the sitemap file to a specific path
+&lt;code&gt;
+$sitemap-&gt;writeSitemap("sitemap.xml");
+&lt;/code&gt;
+{@source}</span><pre>export()</pre></a></li>
+<li class="method public "><a href="#method_generateSitemap" title="generateSitemap :: generate xml sitemap and store it in $xml
+{@source}"><span class="description">generate xml sitemap and store it in $xml
+{@source}</span><pre>generateSitemap()</pre></a></li>
+<li class="method public "><a href="#method_pingSearchEngines" title="pingSearchEngines :: Tell the search engines you have a new sitemap
+&lt;code&gt;
+$url = &quot;www.mydomain.com&quot;;
+$sitemap-&gt;pingSearchEngines($url.'sitemap.xml');
+&lt;/code&gt;
+{@source}"><span class="description">Tell the search engines you have a new sitemap
+&lt;code&gt;
+$url = "www.mydomain.com";
+$sitemap-&gt;pingSearchEngines($url.'sitemap.xml');
+&lt;/code&gt;
+{@source}</span><pre>pingSearchEngines()</pre></a></li>
 </ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul><li class="method private "><a href="#method_getData" title="getData :: fetch your good urls from the database
+{@source}"><span class="description">fetch your good urls from the database
+{@source}</span><pre>getData()</pre></a></li></ul>
 </li>
 <li class="nav-header">
 <i class="icon-custom icon-property"></i> Properties
@@ -74,85 +100,135 @@
 </li>
 <li class="nav-header private">» Private
                     <ul>
-<li class="property private "><a href="#property_configfile" title="$configfile :: stores the location of the xml config file"><span class="description">stores the location of the xml config file</span><pre>$configfile</pre></a></li>
-<li class="property private "><a href="#property_list" title="$list :: stores a list of all the filters to run"><span class="description">stores a list of all the filters to run</span><pre>$list</pre></a></li>
+<li class="property private "><a href="#property_data" title="$data :: "><span class="description">$data</span><pre>$data</pre></a></li>
+<li class="property private "><a href="#property_filename" title="$filename :: "><span class="description">$filename</span><pre>$filename</pre></a></li>
+<li class="property private "><a href="#property_ping" title="$ping :: "><span class="description">$ping</span><pre>$ping</pre></a></li>
+<li class="property private "><a href="#property_url" title="$url :: "><span class="description">$url</span><pre>$url</pre></a></li>
+<li class="property private "><a href="#property_xml" title="$xml :: "><span class="description">$xml</span><pre>$xml</pre></a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="span8">
-<a id="\Crawler\Tweaks\TweakRunner"></a><ul class="breadcrumb">
+<a id="\Crawler\Export\SitemapExport"></a><ul class="breadcrumb">
 <li>
 <a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
 </li>
 <li><a href="../namespaces/Crawler.html">Crawler</a></li>
 <li>
-<span class="divider">\</span><a href="../namespaces/Crawler.Tweaks.html">Tweaks</a>
+<span class="divider">\</span><a href="../namespaces/Crawler.Export.html">Export</a>
 </li>
 <li class="active">
-<span class="divider">\</span><a href="../classes/Crawler.Tweaks.TweakRunner.html">TweakRunner</a>
+<span class="divider">\</span><a href="../classes/Crawler.Export.SitemapExport.html">SitemapExport</a>
 </li>
 </ul>
 <div class="element class">
-<p class="short_description">factory for filters</p>
+<p class="short_description">Class to create a sitemap for your site
+<code>
+$sitemap = new Sitemap($url);
+$sitemap->generateSitemap();
+$sitemap->writeSitemap("sitemap.xml");
+$submit = $sitemap->pingSearchEngines($url.'sitemap.xml');
+foreach ($submit as $searchengine) {
+    echo $searchengine[0], " -> ",$searchengine[1], "<br/>\n";
+}
+</code>
+option to send a ping to searchengines, telling them you updated the sitemap</p>
 <div class="details">
 <div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>author</th>
+<td><a href="">Yves Peeters</a></td>
+</tr></table>
 <h3>
 <i class="icon-custom icon-method"></i> Methods</h3>
 <a id="method___construct"></a><div class="element clickable method public method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
-<h2>constructor</h2>
-<pre>__construct(string $configxml) </pre>
+<h2>__construct()
+        </h2>
+<pre>__construct(string $filename) </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <h3>Parameters</h3>
 <div class="subelement argument">
-<h4>$configxml</h4>
-<code>string</code><p>path to config xml</p></div>
+<h4>$filename</h4>
+<code>string</code>
+</div>
 </div></div>
 </div>
-<a id="method_getTweakList"></a><div class="element clickable method public method_getTweakList" data-toggle="collapse" data-target=".method_getTweakList .collapse">
-<h2>returns all the filters found in the config xml</h2>
-<pre>getTweakList() : \Crawler\Tweaks\type</pre>
+<a id="method_export"></a><div class="element clickable method public method_export" data-toggle="collapse" data-target=".method_export .collapse">
+<h2>Writes the sitemap file to a specific path
+&lt;code&gt;
+$sitemap-&gt;writeSitemap("sitemap.xml");
+&lt;/code&gt;
+{@source}</h2>
+<pre>export() </pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<h3>Returns</h3>
-<div class="subelement response"><code>\Crawler\Tweaks\type</code></div>
-</div></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method_init"></a><div class="element clickable method public method_init" data-toggle="collapse" data-target=".method_init .collapse">
-<h2>parse the config xml</h2>
-<pre>init() </pre>
+<a id="method_generateSitemap"></a><div class="element clickable method public method_generateSitemap" data-toggle="collapse" data-target=".method_generateSitemap .collapse">
+<h2>generate xml sitemap and store it in $xml
+{@source}</h2>
+<pre>generateSitemap() </pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"><p>parses the config xml and puts the content in $list</p></div></div></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="method_run"></a><div class="element clickable method public method_run" data-toggle="collapse" data-target=".method_run .collapse">
-<h2>runs provided set of urls trough a list of tweaks</h2>
-<pre>run(array $urls) : array</pre>
+<a id="method_pingSearchEngines"></a><div class="element clickable method public method_pingSearchEngines" data-toggle="collapse" data-target=".method_pingSearchEngines .collapse">
+<h2>Tell the search engines you have a new sitemap
+&lt;code&gt;
+$url = "www.mydomain.com";
+$sitemap-&gt;pingSearchEngines($url.'sitemap.xml');
+&lt;/code&gt;
+{@source}</h2>
+<pre>pingSearchEngines(String $url) : array</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <h3>Parameters</h3>
 <div class="subelement argument">
-<h4>$urls</h4>
-<code>array</code>
+<h4>$url</h4>
+<code>String</code>
 </div>
 <h3>Returns</h3>
 <div class="subelement response"><code>array</code></div>
 </div></div>
 </div>
-<h3>
-<i class="icon-custom icon-property"></i> Properties</h3>
-<a id="property_configfile"> </a><div class="element clickable property private property_configfile" data-toggle="collapse" data-target=".property_configfile .collapse">
-<h2>stores the location of the xml config file</h2>
-<pre>$configfile : \Crawler\Tweaks\type</pre>
+<a id="method_getData"></a><div class="element clickable method private method_getData" data-toggle="collapse" data-target=".method_getData .collapse">
+<h2>fetch your good urls from the database
+{@source}</h2>
+<pre>getData() </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property_list"> </a><div class="element clickable property private property_list" data-toggle="collapse" data-target=".property_list .collapse">
-<h2>stores a list of all the filters to run</h2>
-<pre>$list : \Crawler\Tweaks\type</pre>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a id="property_data"> </a><div class="element clickable property private property_data" data-toggle="collapse" data-target=".property_data .collapse">
+<h2>$data</h2>
+<pre>$data </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_filename"> </a><div class="element clickable property private property_filename" data-toggle="collapse" data-target=".property_filename .collapse">
+<h2>$filename</h2>
+<pre>$filename </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_ping"> </a><div class="element clickable property private property_ping" data-toggle="collapse" data-target=".property_ping .collapse">
+<h2>$ping</h2>
+<pre>$ping </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_url"> </a><div class="element clickable property private property_url" data-toggle="collapse" data-target=".property_url .collapse">
+<h2>$url</h2>
+<pre>$url </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_xml"> </a><div class="element clickable property private property_xml" data-toggle="collapse" data-target=".property_xml .collapse">
+<h2>$xml</h2>
+<pre>$xml </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>

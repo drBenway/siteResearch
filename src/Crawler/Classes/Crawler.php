@@ -129,15 +129,16 @@ class Crawler
             //@todo do something with the elapsed time or remove it
         }
     }
-    private function goodPage(){
-        
-    }
-    
-    
+
+    /**
+     * saves html from page to database
+     * @param type $html
+     */
+
     public function saveHtml($html)
     {
         $this->db->saveHTML($this->getCurrentPage(),$html);
-        
+
     }
     /**
      * adds urls to queue

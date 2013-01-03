@@ -12,9 +12,10 @@ use Symfony\Component\Console\Input\InputArgument,
     Crawler\Filters as Filters,
     Crawler\Classes as Classes;
 
-class FromUrl extends Console\Command\Command {
-
-    protected function configure() {
+class FromUrl extends Console\Command\Command
+{
+    protected function configure()
+    {
         $this
                 ->setName('fromurl')
                 ->addArgument('fromurl', InputArgument::REQUIRED, 'string containing url')
@@ -30,49 +31,38 @@ class FromUrl extends Console\Command\Command {
                         'store', null, InputOption::VALUE_REQUIRED, 'store html of each page', 1);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output) {
-
+    protected function execute(InputInterface $input, OutputInterface $output)
+    {
         $domain = $input->getArgument('fromurl');
         $db = new DB\CrawlerDB;
         $db->initCrawler($domain);
 
-
-
-        
-
         if (gettype($input->getOption('tweaks')) == 'string') {
-            
+
             $tweaksloc = $input->getOption('tweaks');
             $tweaks = new Tweaks\TweakRunner($tweaksloc);
             $tweaks->init();
         } else {
             $tweaks = new Tweaks\TweakRunner('Crawler/Tweaks/tweaks.xml');
-            
+
             $tweaks->init();
 
         }
-        
-        
-        
-        
+
         if (gettype($input->getOption('filters')) == 'string') {
-            
+
             $filters = $input->getOption('filters');
         } else {
             $filters = new Filters\FilterRunner('Crawler/Filters/filters.xml');
             $filters->init();
         }
-        
-        if ($input->getOption('store'))
-        {
+
+        if ($input->getOption('store')) {
             $store = true;
-        }
-        else{
+        } else {
             $store = false;
         }
         $crwlrsettings = new Classes\CrawlerSettings($domain, "domain", $db, $tweaks, $filters,$store, true, true);
-
-
 
         //*** setup crawler ***
         $output->writeln("starting Crawler \n");

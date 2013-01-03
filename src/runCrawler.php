@@ -50,7 +50,7 @@ if (!isset($options["url"])) {
        --url 'your url' => required
        --tweaks 'link to tweaks xml file' =>optional
        --filters 'link to filters xml file' => optional
-       
+
        ";
   die;
 }

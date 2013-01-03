@@ -22,17 +22,16 @@ class CrawlerResultsDB extends DBPDO implements DatabaseResultInterface
      */
     public function __construct()
     {
-        try{
+        try {
         $mysqlsetup = parse_ini_file(__DIR__."/../../config/config.ini", true);
 
         parent::__construct(
                 $mysqlsetup["mysql_database"]["usr"], $mysqlsetup["mysql_database"]["pass"], $mysqlsetup["mysql_database"]["hostname"], $mysqlsetup["mysql_database"]["database"]);
         $this->selectDatabase($mysqlsetup["mysql_database"]["database"]);
-    }
-    catch (Exception $e){
+    } catch (Exception $e) {
         echo "Could not connect to the database";
     }
-        
+
     }
 
     /**

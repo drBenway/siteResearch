@@ -13,9 +13,10 @@ use Symfony\Component\Console\Input\InputArgument,
     Crawler\Classes as Classes,
     Crawler\Import as Import;
 
-class FromSitemap extends Console\Command\Command {
-
-    protected function configure() {
+class FromSitemap extends Console\Command\Command
+{
+    protected function configure()
+    {
         $this
                 ->setName('fromsitemap')
                 ->addArgument('fromsitemap', InputArgument::REQUIRED, 'string containing path to sitemap')
@@ -31,58 +32,49 @@ class FromSitemap extends Console\Command\Command {
                         'store', null, InputOption::VALUE_REQUIRED, 'store html of each page', 1);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output) {
-
-        
-        
+    protected function execute(InputInterface $input, OutputInterface $output)
+    {
         $filepath = $input->getArgument('fromsitemap');
-        
+
         /**
          * import sitemap
          */
-         
+
         $importer = new Import\SitemapImport($filepath);
         $importer->import();
-        
+
         /**
          * start crawler
          */
-        
+
         $db = new DB\CrawlerDB;
 
         if (gettype($input->getOption('tweaks')) == 'string') {
-            
+
             $tweaksloc = $input->getOption('tweaks');
             $tweaks = new Tweaks\TweakRunner($tweaksloc);
             $tweaks->init();
         } else {
             $tweaks = new Tweaks\TweakRunner('Crawler/Tweaks/tweaks.xml');
-            
+
             $tweaks->init();
 
         }
-        
-        
-        
-        
+
         if (gettype($input->getOption('filters')) == 'string') {
-            
+
             $filters = $input->getOption('filters');
         } else {
             $filters = new Filters\FilterRunner('Crawler/Filters/filters.xml');
             $filters->init();
         }
-        
-        if ($input->getOption('store'))
-        {
+
+        if ($input->getOption('store')) {
             $store = true;
-        }
-        else{
+        } else {
             $store = false;
         }
         $crwlrsettings = new Classes\CrawlerSettings($filepath, "domain", $db, $tweaks, $filters,$store, true, true);
-
-
 
         //*** setup crawler ***
         $output->writeln("starting Crawler \n");
@@ -95,5 +87,3 @@ class FromSitemap extends Console\Command\Command {
     }
 
     }
-
- 

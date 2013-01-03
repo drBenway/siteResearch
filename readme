@@ -23,8 +23,8 @@ understand the inner workings of the crawler
 
 How the crawler works:
 ----------------------
-To start the crawler you call runCrawler.php via the commandline. You do this by
-writing php runCrawler.php --url "a starting url for the domain you want to crawl"
+To start the crawler you call crawler.php via the commandline. You do this by
+writing php crawler.php --fromurl "a starting url for the domain you want to crawl"
 
 The script will then add this url to a database and start crawling it as first url.
 All urls that are found on this page are then added to the database as urls to crawl.
@@ -52,8 +52,8 @@ First you should decide on what urls to strip from the crawling. This is done by
 providing a set of values to the FilterExternalUrls Filter. 
 Let's start by explaining how this works:
 
-Call php filterUrls.php with one of 3 parameters:
-1. "php filterUrls.php -r" will return the contents of the filterExternalUrls 
+Call php crawler.php filterUrls.php with one of 3 parameters:
+1. "php filterUrls -r" will return the contents of the filterExternalUrls 
 xml file.
 
 The values between the domain tags are checked for each url
@@ -65,24 +65,28 @@ http://www.bbc.co.uk/weather/today.html will not.
 
 2. Updating this list can be done with the -a (append) parameter.
 If we would like to crawl bbc.co.uk we could for example provide the setting
-php filterUrls.php -a "bbc.co.uk". The crawler would then accept any url that 
+php crawler.php filteryrls -a "bbc.co.uk". The crawler would then accept any url that 
 contains bbc.co.uk. Crawling only the news section would be as simple as 
-php filterUrls.php -a "http://www.bbc.com/news/". 
+php crawler.php filterurls.php -a "http://www.bbc.com/news/". 
 Beware that if you define multiple filters, the more specific will overwrite 
 more general ones. Thus if you add bbc.co.uk and bbc.co.uk/weather to the list 
-(filterUrls.php -a "bbc.co.uk,bbc.co.uk/weather), only the urls with 
+(filterurls -a "bbc.co.uk,bbc.co.uk/weather", only the urls with 
 bbc.co.uk/weather will be kept.
 
-3. The -a append adds urls to the already existing list. If you want to create 
-a new list from scratch, you should use the -w (write) parameter. 
+3. The -a / --append adds urls to the already existing list. If you want to create 
+a new list from scratch, you should use the -w or --write parameter. 
 The filterExternalUrls.xml file will be overwritten with the new values.
-expl. php filterUrls.php -w "www.bbc.co.uk,bbc.com"
+expl. php crawler.php filterurls -w "www.bbc.co.uk,bbc.com"
 
 After configuring the crawler it's time to launch the script.
-The Crawler can be launched with php runCrawler.php --url "your url". 
+The Crawler can be launched with php crawler.php --url "your url". 
 The --url parameter is mandatory. This is the first page of the domain you want
 to crawl. If all goes well, your terminal should display a message saying that 
 the crawler started. After that a series of dots will appear. This is an indication
 that the crawler is crawling pages. Per finished page, a dot will appear. 
 For more information about how to tweak the crawler, please see the wiki.
 
+## fromsitemap alternative
+Alternatively, you can start crawling from data in a sitemap.xml file.
+This is done with php crawler.php fromsitemap "path to a sitemap file"
+The rest is exactly the same as fromurl.

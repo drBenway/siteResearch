@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 <meta charset="utf-8">
-<title>phpDocumentor » \Crawler\Tweaks\stripIndex</title>
+<title>phpDocumentor » \Crawler\Import\SitemapImport</title>
 <meta name="author" content="Mike van Riel">
 <meta name="description" content="">
 <link href="../css/template.css" rel="stylesheet" media="all">
@@ -61,67 +61,86 @@
 <ul class="side-nav nav nav-list">
 <li class="nav-header">
 <i class="icon-custom icon-method"></i> Methods
-                    <ul><li class="method public "><a href="#method_tweak" title="tweak :: strips index from given urls"><span class="description">strips index from given urls</span><pre>tweak()</pre></a></li></ul>
+                    <ul>
+<li class="method public "><a href="#method___construct" title="__construct :: "><span class="description">__construct()
+        </span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#method_import" title="import :: export results"><span class="description">export results</span><pre>import()</pre></a></li>
+</ul>
 </li>
 <li class="nav-header private">» Private
-                    <ul><li class="method private "><a href="#method_strip" title="strip :: strip every version of index page"><span class="description">strip every version of index page</span><pre>strip()</pre></a></li></ul>
+                    <ul>
+<li class="method private "><a href="#method_parseXML" title="parseXML :: "><span class="description">parseXML()
+        </span><pre>parseXML()</pre></a></li>
+<li class="method private "><a href="#method_validFile" title="validFile :: "><span class="description">validFile()
+        </span><pre>validFile()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties
+                    <ul></ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul><li class="property private "><a href="#property_path" title="$path :: "><span class="description">$path</span><pre>$path</pre></a></li></ul>
 </li>
 </ul>
 </div>
 <div class="span8">
-<a id="\Crawler\Tweaks\stripIndex"></a><ul class="breadcrumb">
+<a id="\Crawler\Import\SitemapImport"></a><ul class="breadcrumb">
 <li>
 <a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
 </li>
 <li><a href="../namespaces/Crawler.html">Crawler</a></li>
 <li>
-<span class="divider">\</span><a href="../namespaces/Crawler.Tweaks.html">Tweaks</a>
+<span class="divider">\</span><a href="../namespaces/Crawler.Import.html">Import</a>
 </li>
 <li class="active">
-<span class="divider">\</span><a href="../classes/Crawler.Tweaks.stripIndex.html">stripIndex</a>
+<span class="divider">\</span><a href="../classes/Crawler.Import.SitemapImport.html">SitemapImport</a>
 </li>
 </ul>
 <div class="element class">
-<p class="short_description">class to strip the index (expl index.php,index.asp) from urls</p>
+<p class="short_description">abstract class for exporters</p>
 <div class="details">
-<div class="long_description"><p>if you don't strip the index, you risk having 2 links to the same page in
-your crawlerdatabase expl: www.github.com and www.github.com/index.php are the same page</p></div>
+<div class="long_description"></div>
 <h3>
 <i class="icon-custom icon-method"></i> Methods</h3>
-<a id="method_tweak"></a><div class="element clickable method public method_tweak" data-toggle="collapse" data-target=".method_tweak .collapse">
-<h2>strips index from given urls</h2>
-<pre>tweak(array $urls) : array</pre>
+<a id="method___construct"></a><div class="element clickable method public method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
+<h2>__construct()
+        </h2>
+<pre>__construct($path) </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$urls</h4>
-<code>array</code>
-</div>
-<h3>Returns</h3>
-<div class="subelement response"><code>array</code></div>
+<div class="subelement argument"><h4>$path</h4></div>
 </div></div>
 </div>
-<a id="method_strip"></a><div class="element clickable method private method_strip" data-toggle="collapse" data-target=".method_strip .collapse">
-<h2>strip every version of index page</h2>
-<pre>strip(string $url) : string</pre>
+<a id="method_import"></a><div class="element clickable method public method_import" data-toggle="collapse" data-target=".method_import .collapse">
+<h2>export results</h2>
+<pre>import() </pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$url</h4>
-<code>string</code>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<h3>Exceptions</h3>
-<table class="table table-bordered"><tr>
-<th><code>\Crawler\Tweaks\Exception</code></th>
-<td></td>
-</tr></table>
-<h3>Returns</h3>
-<div class="subelement response"><code>string</code></div>
-</div></div>
+<a id="method_parseXML"></a><div class="element clickable method private method_parseXML" data-toggle="collapse" data-target=".method_parseXML .collapse">
+<h2>parseXML()
+        </h2>
+<pre>parseXML() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_validFile"></a><div class="element clickable method private method_validFile" data-toggle="collapse" data-target=".method_validFile .collapse">
+<h2>validFile()
+        </h2>
+<pre>validFile() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a id="property_path"> </a><div class="element clickable property private property_path" data-toggle="collapse" data-target=".property_path .collapse">
+<h2>$path</h2>
+<pre>$path </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
 </div>
 </div>

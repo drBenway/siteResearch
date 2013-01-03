@@ -7,12 +7,6 @@ namespace Crawler\Export;
 use Crawler\DB as DB;
 use Crawler\Classes as Classes;
 
-
-
-
-
-
-
 /**
  * Class to create a sitemap for your site
  * <code>
@@ -20,14 +14,15 @@ use Crawler\Classes as Classes;
  * $sitemap->generateSitemap();
  * $sitemap->writeSitemap("sitemap.xml");
  * $submit = $sitemap->pingSearchEngines($url.'sitemap.xml');
- * foreach($submit as $searchengine){
+ * foreach ($submit as $searchengine) {
  *     echo $searchengine[0], " -> ",$searchengine[1], "<br/>\n";
  * }
  * </code>
  * option to send a ping to searchengines, telling them you updated the sitemap
  * @author Yves Peeters
  */
-class SitemapExport  extends ExportAbstract {
+class SitemapExport  extends ExportAbstract
+{
     private $url="";
     private $data="";
     private $xml;
@@ -49,7 +44,8 @@ class SitemapExport  extends ExportAbstract {
      * fetch your good urls from the database
      * {@source}
      */
-    private function getData(){
+    private function getData()
+    {
         $this->data = $this->db->getGoodUrls();
     }
 
@@ -57,13 +53,14 @@ class SitemapExport  extends ExportAbstract {
      * generate xml sitemap and store it in $xml
      * {@source}
      */
-    public function generateSitemap(){
+    public function generateSitemap()
+    {
         $this->getData();
         $this->xml = "<?xml version='1.0' encoding='UTF-8'?>\n
             \t<urlset xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
          xsi:schemaLocation='http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd'
          xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>";
-        foreach($this->data as $url){
+        foreach ($this->data as $url) {
             $this->xml .="\t\t<url>\n";
             $this->xml .="\t\t\t<loc>".urlencode($url)."</loc>\n";
             $this->xml .="\t\t</url>";
@@ -79,12 +76,12 @@ class SitemapExport  extends ExportAbstract {
      * {@source}
      * @param String $path
      */
-    public function export(){
-        try{
+    public function export()
+    {
+        try {
         $fp = fopen($this->path, 'w');
         fwrite($fp, $this->xml);
-        }
-        catch (Exception $e){
+        } catch (Exception $e) {
             echo "failed to export sitemap";
         }
     }
@@ -96,19 +93,20 @@ class SitemapExport  extends ExportAbstract {
      * $sitemap->pingSearchEngines($url.'sitemap.xml');
      * </code>
      * {@source}
-     * @param String $url
+     * @param  String $url
      * @return array
      */
-    public function pingSearchEngines($url){
+    public function pingSearchEngines($url)
+    {
         $return = array();
-        foreach ($this->ping as $SE){
+        foreach ($this->ping as $SE) {
             $crl = new Classes\PHP_Curl_Crawler();
             $crl->init();
             $response = $crl->getContent($SE[1].$url);
             array_push($return,array($SE[0],$response));
             unset($crl);
         }
+
         return $return;
     }
 }
-?>

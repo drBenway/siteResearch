@@ -62,5 +62,3 @@ try {
 } catch (PDOException $err) {
     echo 'failed to create table crawler: ', $err->getMessage(), "\n";
 }
-
-

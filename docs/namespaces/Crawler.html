@@ -35,10 +35,10 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">25</span></a></li>
+                <span class="label label-info">58</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul><li>todo 
-                <span class="label label-info">11</span>
+                <span class="label label-info">9</span>
 </li></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
                 <span class="label label-info">0</span></a></li>
@@ -77,6 +77,9 @@
 </li>
 <li>
 <a href="../namespaces/Crawler.Filters.html" title="Filters"><i class="icon-th"></i>Filters</a><ul class="nav nav-list nav-namespaces"></ul>
+</li>
+<li>
+<a href="../namespaces/Crawler.Import.html" title="Import"><i class="icon-th"></i>Import</a><ul class="nav nav-list nav-namespaces"></ul>
 </li>
 <li>
 <a href="../namespaces/Crawler.Tweaks.html" title="Tweaks"><i class="icon-th"></i>Tweaks</a><ul class="nav nav-list nav-namespaces"></ul>
@@ -136,12 +139,40 @@
 <div class="namespace-indent">
 <h3>
 <i class="icon-custom icon-class"></i> Classes and interfaces</h3>
-<div id="Url" class="element ajax clickable class">
-<h1>Url<a href="../classes/Crawler.CLI.Url.html">¶</a>
+<div id="CSVExport" class="element ajax clickable class">
+<h1>CSVExport<a href="../classes/Crawler.CLI.CSVExport.html">¶</a>
+</h1>
+<p class="short_description">crawler command to export crawler table to a csv file</p>
+<div class="details collapse"></div>
+<a href="../classes/Crawler.CLI.CSVExport.html" class="more">« More »</a>
+</div>
+<div id="FilterUrls" class="element ajax clickable class">
+<h1>FilterUrls<a href="../classes/Crawler.CLI.FilterUrls.html">¶</a>
 </h1>
 <p class="short_description"></p>
 <div class="details collapse"></div>
-<a href="../classes/Crawler.CLI.Url.html" class="more">« More »</a>
+<a href="../classes/Crawler.CLI.FilterUrls.html" class="more">« More »</a>
+</div>
+<div id="FromSitemap" class="element ajax clickable class">
+<h1>FromSitemap<a href="../classes/Crawler.CLI.FromSitemap.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/Crawler.CLI.FromSitemap.html" class="more">« More »</a>
+</div>
+<div id="FromUrl" class="element ajax clickable class">
+<h1>FromUrl<a href="../classes/Crawler.CLI.FromUrl.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/Crawler.CLI.FromUrl.html" class="more">« More »</a>
+</div>
+<div id="SitemapExport" class="element ajax clickable class">
+<h1>SitemapExport<a href="../classes/Crawler.CLI.SitemapExport.html">¶</a>
+</h1>
+<p class="short_description"></p>
+<div class="details collapse"></div>
+<a href="../classes/Crawler.CLI.SitemapExport.html" class="more">« More »</a>
 </div>
 </div>
 <ul class="breadcrumb">
@@ -255,7 +286,8 @@
 <div id="CSVExport" class="element ajax clickable class">
 <h1>CSVExport<a href="../classes/Crawler.Export.CSVExport.html">¶</a>
 </h1>
-<p class="short_description">exports crawler table to a csv file</p>
+<p class="short_description">exports crawler table to a csv file
+takes a filename as imput an exports the table to "output/filename.csv"</p>
 <div class="details collapse"></div>
 <a href="../classes/Crawler.Export.CSVExport.html" class="more">« More »</a>
 </div>
@@ -265,6 +297,23 @@
 <p class="short_description">abstract class for exporters</p>
 <div class="details collapse"></div>
 <a href="../classes/Crawler.Export.ExportAbstract.html" class="more">« More »</a>
+</div>
+<div id="SitemapExport" class="element ajax clickable class">
+<h1>SitemapExport<a href="../classes/Crawler.Export.SitemapExport.html">¶</a>
+</h1>
+<p class="short_description">Class to create a sitemap for your site
+<code>
+$sitemap = new Sitemap($url);
+$sitemap->generateSitemap();
+$sitemap->writeSitemap("sitemap.xml");
+$submit = $sitemap->pingSearchEngines($url.'sitemap.xml');
+foreach ($submit as $searchengine) {
+    echo $searchengine[0], " -> ",$searchengine[1], "<br/>\n";
+}
+</code>
+option to send a ping to searchengines, telling them you updated the sitemap</p>
+<div class="details collapse"></div>
+<a href="../classes/Crawler.Export.SitemapExport.html" class="more">« More »</a>
 </div>
 </div>
 <ul class="breadcrumb">
@@ -299,6 +348,33 @@
 <p class="short_description">factory for filters</p>
 <div class="details collapse"></div>
 <a href="../classes/Crawler.Filters.FilterRunner.html" class="more">« More »</a>
+</div>
+</div>
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-th"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/Crawler.html">Crawler</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../namespaces/Crawler.Import.html">Import</a>
+</li>
+</ul>
+<div class="namespace-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<div id="ImportAbstract" class="element ajax clickable class">
+<h1>ImportAbstract<a href="../classes/Crawler.Import.ImportAbstract.html">¶</a>
+</h1>
+<p class="short_description">abstract class for exporters</p>
+<div class="details collapse"></div>
+<a href="../classes/Crawler.Import.ImportAbstract.html" class="more">« More »</a>
+</div>
+<div id="SitemapImport" class="element ajax clickable class">
+<h1>SitemapImport<a href="../classes/Crawler.Import.SitemapImport.html">¶</a>
+</h1>
+<p class="short_description">abstract class for exporters</p>
+<div class="details collapse"></div>
+<a href="../classes/Crawler.Import.SitemapImport.html" class="more">« More »</a>
 </div>
 </div>
 <ul class="breadcrumb">
@@ -383,7 +459,7 @@
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a10</a> and<br>
-            generated on 2012-12-12T16:41:32+01:00.<br></footer></div>
+            generated on 2013-01-03T13:42:09+01:00.<br></footer></div>
 </div>
 </body>
 </html>

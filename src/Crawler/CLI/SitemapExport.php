@@ -9,9 +9,10 @@ use Symfony\Component\Console\Input\InputArgument,
     Symfony\Component\Console\Output\OutputInterface,
     Crawler\Export as Export;
 
-class SitemapExport extends Console\Command\Command {
-
-    protected function configure() {
+class SitemapExport extends Console\Command\Command
+{
+    protected function configure()
+    {
         $this
                 ->setName('sitemapexport')
                 ->addArgument('sitemapexport', InputArgument::REQUIRED, 'export content')
@@ -21,14 +22,14 @@ class SitemapExport extends Console\Command\Command {
                             ');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output) {
+    protected function execute(InputInterface $input, OutputInterface $output)
+    {
         $filepath = $input->getArgument('sitemapexport');
-        if(gettype($filepath) == 'string'){
+        if (gettype($filepath) == 'string') {
             $exporter = new Export\SitemapExport($filepath);
             $exporter->export();
             $output->writeln("created sitemap at " . $filepath);
-        }
-        else{
+        } else {
             $output->writeln("failed to output sitemap");
         }
     }

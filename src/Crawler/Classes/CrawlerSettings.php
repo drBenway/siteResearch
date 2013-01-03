@@ -64,10 +64,10 @@ Class CrawlerSettings {
      * @var object(curl)
      */
     private $curl;
-    
+
     /**
      * should the crawler store the obtained html yes/no
-     * @var type 
+     * @var type
      */
     private $store;
 
@@ -78,10 +78,12 @@ Class CrawlerSettings {
      * @param object  $db
      * @param object  $tweaks
      * @param object  $filters
+     * @param boolean $store
      * @param boolean $stripIndex
      * @param boolean $stripParameters
      */
-    public function __construct($url, $type, $db, $tweaks, $filters, $store = false, $stripIndex = true, $stripParameters = true) {
+    public function __construct($url, $type, $db, $tweaks, $filters, $store = false, $stripIndex = true, $stripParameters = true)
+    {
         $this->url = $url;
         $this->type = $type;
         $this->db = $db;
@@ -96,7 +98,8 @@ Class CrawlerSettings {
      * sets the url to parse
      * @param string $url
      */
-    public function setUrl($url) {
+    public function setUrl($url)
+    {
         $this->url = $url;
     }
 
@@ -104,7 +107,8 @@ Class CrawlerSettings {
      * set the parsing type
      * @param string $type
      */
-    public function setType($type) {
+    public function setType($type)
+    {
         $this->type = $type;
     }
 
@@ -112,7 +116,8 @@ Class CrawlerSettings {
      * Do you want to strip the index yes/no
      * @param boolean $stripIndex
      */
-    public function setStripIndex($stripIndex) {
+    public function setStripIndex($stripIndex)
+    {
         $this->stripIndex = $stripIndex;
     }
 
@@ -120,7 +125,8 @@ Class CrawlerSettings {
      * do you want to strip parameters from the url yes/no
      * @param boolean $stripParameters
      */
-    public function setStripParameters($stripParameters) {
+    public function setStripParameters($stripParameters)
+    {
         $this->stripParameters = $stripParameters;
     }
 
@@ -128,7 +134,8 @@ Class CrawlerSettings {
      * use this database to store the results
      * @param DatabaseInterface $db
      */
-    public function setDb(DatabaseInterface $db) {
+    public function setDb(DatabaseInterface $db)
+    {
         $this->db = $db;
     }
 
@@ -136,7 +143,8 @@ Class CrawlerSettings {
      * selects a filterset
      * @param FilterInterface $filters
      */
-    public function setFilters(FilterInterface $filters) {
+    public function setFilters(FilterInterface $filters)
+    {
         $this->filters = $filters;
     }
 
@@ -144,7 +152,8 @@ Class CrawlerSettings {
      * select a tweaks set
      * @param TweakInterface $tweaks
      */
-    public function setTweaks(TweakInterface $tweaks) {
+    public function setTweaks(TweakInterface $tweaks)
+    {
         $this->tweaks = $tweaks;
     }
 
@@ -152,7 +161,8 @@ Class CrawlerSettings {
      * curl object to be used
      * @param type $curl
      */
-    public function setCurl($curl) {
+    public function setCurl($curl)
+    {
         $this->curl = $curl;
     }
 
@@ -160,7 +170,8 @@ Class CrawlerSettings {
      * get the starting url
      * @return string
      */
-    public function getUrl() {
+    public function getUrl()
+    {
         return $this->url;
     }
 
@@ -168,7 +179,8 @@ Class CrawlerSettings {
      * get the crawler type
      * @return string
      */
-    public function getType() {
+    public function getType()
+    {
         return $this->type;
     }
 
@@ -176,7 +188,8 @@ Class CrawlerSettings {
      * do we strip index files from urls?
      * @return boolean
      */
-    public function getStripIndex() {
+    public function getStripIndex()
+    {
         return $this->stripIndex;
     }
 
@@ -184,7 +197,8 @@ Class CrawlerSettings {
      * do we strip parameters from urls?
      * @return boolean
      */
-    public function getStripParameters() {
+    public function getStripParameters()
+    {
         return $this->stripParameters;
     }
 
@@ -192,7 +206,8 @@ Class CrawlerSettings {
      * return database object
      * @return object
      */
-    public function getDb() {
+    public function getDb()
+    {
         return $this->db;
     }
 
@@ -200,7 +215,8 @@ Class CrawlerSettings {
      * return filter object
      * @return object
      */
-    public function getFilters() {
+    public function getFilters()
+    {
         return $this->filters;
     }
 
@@ -208,7 +224,8 @@ Class CrawlerSettings {
      * returns Tweak object
      * @return object
      */
-    public function getTweaks() {
+    public function getTweaks()
+    {
         return $this->tweaks;
     }
 
@@ -216,14 +233,26 @@ Class CrawlerSettings {
      * returns curl object
      * @return object
      */
-    public function getCurl() {
+    public function getCurl()
+    {
         return $this->curl;
     }
 
-    public function setStore($store){
+    /**
+     * set the store html property
+     * @param boolean $store
+     */
+    public function setStore($store)
+    {
         $this->store($store);
     }
-    public function getStore() {
+
+    /**
+     * get the store html property
+     * @return boolean
+     */
+    public function getStore()
+    {
         return $this->store;
     }
 

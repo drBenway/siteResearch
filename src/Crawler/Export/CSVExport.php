@@ -5,8 +5,6 @@
  * @package siteResearch
  * @subpackage crawler
  * @author Yves Peeters
- * @todo add option to import all known links from google
- * @todo add option to import all links from sitemap.xml file
  */
 
 namespace Crawler\Export;
@@ -14,7 +12,6 @@ use Crawler\DB as DB;
 
 /**
  * exports crawler table to a csv file
- *
  * takes a filename as imput an exports the table to "output/filename.csv"
  */
 class CSVExport extends ExportAbstract

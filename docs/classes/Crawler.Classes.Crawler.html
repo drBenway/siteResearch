@@ -35,10 +35,10 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">25</span></a></li>
+                <span class="label label-info">58</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul><li>todo 
-                <span class="label label-info">11</span>
+                <span class="label label-info">9</span>
 </li></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
                 <span class="label label-info">0</span></a></li>
@@ -66,8 +66,9 @@
 <li class="method public "><a href="#method_addUrls" title="addUrls :: adds urls to queue
 {@filesource}"><span class="description">adds urls to queue
 {@filesource}</span><pre>addUrls()</pre></a></li>
-<li class="method public "><a href="#method_getCurrent_page" title="getCurrent_page :: gets the currtent page"><span class="description">gets the currtent page</span><pre>getCurrent_page()</pre></a></li>
-<li class="method public "><a href="#method_setCurrent_page" title="setCurrent_page :: sets the current page"><span class="description">sets the current page</span><pre>setCurrent_page()</pre></a></li>
+<li class="method public "><a href="#method_getCurrentPage" title="getCurrentPage :: gets the currtent page"><span class="description">gets the currtent page</span><pre>getCurrentPage()</pre></a></li>
+<li class="method public "><a href="#method_saveHtml" title="saveHtml :: saves html from page to database"><span class="description">saves html from page to database</span><pre>saveHtml()</pre></a></li>
+<li class="method public "><a href="#method_setCurrentPage" title="setCurrentPage :: sets the current page"><span class="description">sets the current page</span><pre>setCurrentPage()</pre></a></li>
 <li class="method public "><a href="#method_startCrawler" title="startCrawler :: Start crawling
 {@filesource}"><span class="description">Start crawling
 {@filesource}</span><pre>startCrawler()</pre></a></li>
@@ -75,9 +76,6 @@
 </li>
 <li class="nav-header private">» Private
                     <ul>
-<li class="method private "><a href="#method_getUrlToWorkOn" title="getUrlToWorkOn :: returns one url to start scraping
-{@filesource}"><span class="description">returns one url to start scraping
-{@filesource}</span><pre>getUrlToWorkOn()</pre></a></li>
 <li class="method private "><a href="#method_runFilters" title="runFilters :: runs a set of filters over a given list of urls"><span class="description">runs a set of filters over a given list of urls</span><pre>runFilters()</pre></a></li>
 <li class="method private "><a href="#method_runTweaks" title="runTweaks :: runs a list of provided tweaks over a given list of urls"><span class="description">runs a list of provided tweaks over a given list of urls</span><pre>runTweaks()</pre></a></li>
 </ul>
@@ -164,9 +162,9 @@ $scraper = new Crawler($url);
 </div>
 </div></div>
 </div>
-<a id="method_getCurrent_page"></a><div class="element clickable method public method_getCurrent_page" data-toggle="collapse" data-target=".method_getCurrent_page .collapse">
+<a id="method_getCurrentPage"></a><div class="element clickable method public method_getCurrentPage" data-toggle="collapse" data-target=".method_getCurrentPage .collapse">
 <h2>gets the currtent page</h2>
-<pre>getCurrent_page() : String</pre>
+<pre>getCurrentPage() : String</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
@@ -174,9 +172,22 @@ $scraper = new Crawler($url);
 <div class="subelement response"><code>String</code></div>
 </div></div>
 </div>
-<a id="method_setCurrent_page"></a><div class="element clickable method public method_setCurrent_page" data-toggle="collapse" data-target=".method_setCurrent_page .collapse">
+<a id="method_saveHtml"></a><div class="element clickable method public method_saveHtml" data-toggle="collapse" data-target=".method_saveHtml .collapse">
+<h2>saves html from page to database</h2>
+<pre>saveHtml(\Crawler\Classes\type $html) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$html</h4>
+<code>\Crawler\Classes\type</code>
+</div>
+</div></div>
+</div>
+<a id="method_setCurrentPage"></a><div class="element clickable method public method_setCurrentPage" data-toggle="collapse" data-target=".method_setCurrentPage .collapse">
 <h2>sets the current page</h2>
-<pre>setCurrent_page(String $current_page) </pre>
+<pre>setCurrentPage(String $current_page) </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
@@ -198,17 +209,6 @@ $scraper = new Crawler($url);
 <th>todo</th>
 <td>try to move new objects outside of loop. di container is for later</td>
 </tr></table>
-</div></div>
-</div>
-<a id="method_getUrlToWorkOn"></a><div class="element clickable method private method_getUrlToWorkOn" data-toggle="collapse" data-target=".method_getUrlToWorkOn .collapse">
-<h2>returns one url to start scraping
-{@filesource}</h2>
-<pre>getUrlToWorkOn() : String</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<h3>Returns</h3>
-<div class="subelement response"><code>String</code></div>
 </div></div>
 </div>
 <a id="method_runFilters"></a><div class="element clickable method private method_runFilters" data-toggle="collapse" data-target=".method_runFilters .collapse">
@@ -266,7 +266,7 @@ $scraper = new Crawler($url);
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a10</a> and<br>
-            generated on 2012-12-12T16:41:33+01:00.<br></footer></div>
+            generated on 2013-01-03T13:42:09+01:00.<br></footer></div>
 </div>
 </body>
 </html>

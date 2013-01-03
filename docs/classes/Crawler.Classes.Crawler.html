@@ -1,0 +1,272 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>phpDocumentor » \Crawler\Classes\Crawler</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/Crawler.html"><i class="icon-th"></i> Crawler</a></li>
+<li><a href="../namespaces/siteResearch.html"><i class="icon-th"></i> siteResearch</a></li>
+<li><a>Packages</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+<li><a href="../packages/siteResearch.html"><i class="icon-folder-open"></i> siteResearch</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">25</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul><li>todo 
+                <span class="label label-info">11</span>
+</li></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public "><a href="#method___construct" title="__construct :: constructor"><span class="description">constructor</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#method_addUrls" title="addUrls :: adds urls to queue
+{@filesource}"><span class="description">adds urls to queue
+{@filesource}</span><pre>addUrls()</pre></a></li>
+<li class="method public "><a href="#method_getCurrent_page" title="getCurrent_page :: gets the currtent page"><span class="description">gets the currtent page</span><pre>getCurrent_page()</pre></a></li>
+<li class="method public "><a href="#method_setCurrent_page" title="setCurrent_page :: sets the current page"><span class="description">sets the current page</span><pre>setCurrent_page()</pre></a></li>
+<li class="method public "><a href="#method_startCrawler" title="startCrawler :: Start crawling
+{@filesource}"><span class="description">Start crawling
+{@filesource}</span><pre>startCrawler()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul>
+<li class="method private "><a href="#method_getUrlToWorkOn" title="getUrlToWorkOn :: returns one url to start scraping
+{@filesource}"><span class="description">returns one url to start scraping
+{@filesource}</span><pre>getUrlToWorkOn()</pre></a></li>
+<li class="method private "><a href="#method_runFilters" title="runFilters :: runs a set of filters over a given list of urls"><span class="description">runs a set of filters over a given list of urls</span><pre>runFilters()</pre></a></li>
+<li class="method private "><a href="#method_runTweaks" title="runTweaks :: runs a list of provided tweaks over a given list of urls"><span class="description">runs a list of provided tweaks over a given list of urls</span><pre>runTweaks()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties
+                    <ul></ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul>
+<li class="property private "><a href="#property_current_page" title="$current_page :: Holds the current page"><span class="description">Holds the current page</span><pre>$current_page</pre></a></li>
+<li class="property private "><a href="#property_db" title="$db :: database connection"><span class="description">database connection</span><pre>$db</pre></a></li>
+<li class="property private "><a href="#property_settings" title="$settings :: object containing all the settings for the crawler"><span class="description">object containing all the settings for the crawler</span><pre>$settings</pre></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a id="\Crawler\Classes\Crawler"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/Crawler.html">Crawler</a></li>
+<li>
+<span class="divider">\</span><a href="../namespaces/Crawler.Classes.html">Classes</a>
+</li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/Crawler.Classes.Crawler.html">Crawler</a>
+</li>
+</ul>
+<div class="element class">
+<p class="short_description">Crawls one or more websites for url</p>
+<div class="details">
+<div class="long_description"><p>A pagequeue is created in the database and the url is added.
+Crawler then parses the first page in the queue (the url that was recieved as
+parameter) and adds all found links to the queue.
+After that the crawler looks for the next unparsed page and adds the result
+to the back of the queue.
+This repeats until the entire queue has been checked.</p>
+
+<p><img src="http://www.westworld.be/siteResearch/Design/images/crawler.gif" /><br />
+The script can take some time to finish. It is advised to give php more
+memory and time with</p>
+
+<pre><code>ini_set("memory_limit","xxxM");
+set_time_limit(xxx);// time in seconds
+</code></pre>
+
+<p>Exmpl.</p>
+
+<pre><code>$url = 'https://github.com/drBenway/siteResearch/';
+$scraper = new Crawler($url);
+</code></pre></div>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a id="method___construct"></a><div class="element clickable method public method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
+<h2>constructor</h2>
+<pre>__construct(\Crawler\Classes\CrawlerSettings $settings) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$settings</h4>
+<code><a href="../classes/Crawler.Classes.CrawlerSettings.html">\Crawler\Classes\CrawlerSettings</a></code>
+</div>
+</div></div>
+</div>
+<a id="method_addUrls"></a><div class="element clickable method public method_addUrls" data-toggle="collapse" data-target=".method_addUrls .collapse">
+<h2>adds urls to queue
+{@filesource}</h2>
+<pre>addUrls(Array $urls, string $page) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$urls</h4>
+<code>Array</code>
+</div>
+<div class="subelement argument">
+<h4>$page</h4>
+<code>string</code>
+</div>
+</div></div>
+</div>
+<a id="method_getCurrent_page"></a><div class="element clickable method public method_getCurrent_page" data-toggle="collapse" data-target=".method_getCurrent_page .collapse">
+<h2>gets the currtent page</h2>
+<pre>getCurrent_page() : String</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>String</code></div>
+</div></div>
+</div>
+<a id="method_setCurrent_page"></a><div class="element clickable method public method_setCurrent_page" data-toggle="collapse" data-target=".method_setCurrent_page .collapse">
+<h2>sets the current page</h2>
+<pre>setCurrent_page(String $current_page) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$current_page</h4>
+<code>String</code>
+</div>
+</div></div>
+</div>
+<a id="method_startCrawler"></a><div class="element clickable method public method_startCrawler" data-toggle="collapse" data-target=".method_startCrawler .collapse">
+<h2>Start crawling
+{@filesource}</h2>
+<pre>startCrawler() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>todo</th>
+<td>try to move new objects outside of loop. di container is for later</td>
+</tr></table>
+</div></div>
+</div>
+<a id="method_getUrlToWorkOn"></a><div class="element clickable method private method_getUrlToWorkOn" data-toggle="collapse" data-target=".method_getUrlToWorkOn .collapse">
+<h2>returns one url to start scraping
+{@filesource}</h2>
+<pre>getUrlToWorkOn() : String</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>String</code></div>
+</div></div>
+</div>
+<a id="method_runFilters"></a><div class="element clickable method private method_runFilters" data-toggle="collapse" data-target=".method_runFilters .collapse">
+<h2>runs a set of filters over a given list of urls</h2>
+<pre>runFilters(array $urls) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$urls</h4>
+<code>array</code>
+</div>
+</div></div>
+</div>
+<a id="method_runTweaks"></a><div class="element clickable method private method_runTweaks" data-toggle="collapse" data-target=".method_runTweaks .collapse">
+<h2>runs a list of provided tweaks over a given list of urls</h2>
+<pre>runTweaks(\Crawler\Classes\type $urls) : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$urls</h4>
+<code>\Crawler\Classes\type</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code>array</code></div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a id="property_current_page"> </a><div class="element clickable property private property_current_page" data-toggle="collapse" data-target=".property_current_page .collapse">
+<h2>Holds the current page</h2>
+<pre>$current_page : String</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_db"> </a><div class="element clickable property private property_db" data-toggle="collapse" data-target=".property_db .collapse">
+<h2>database connection</h2>
+<pre>$db : \Crawler\Classes\type</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_settings"> </a><div class="element clickable property private property_settings" data-toggle="collapse" data-target=".property_settings .collapse">
+<h2>object containing all the settings for the crawler</h2>
+<pre>$settings : \Crawler\Classes\type</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a10</a> and<br>
+            generated on 2012-12-12T16:41:33+01:00.<br></footer></div>
+</div>
+</body>
+</html>

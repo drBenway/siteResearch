@@ -20,11 +20,10 @@
 <a href="#api" class="dropdown-toggle" data-toggle="dropdown">
                                     API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a>Namespaces</a></li>
-<li><a href="namespaces/global.html"><i class="icon-th"></i> global</a></li>
+<li><a href="namespaces/Crawler.html"><i class="icon-th"></i> Crawler</a></li>
 <li><a href="namespaces/siteResearch.html"><i class="icon-th"></i> siteResearch</a></li>
 <li><a>Packages</a></li>
 <li><a href="packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
-<li><a href="packages/PlaceLocalInclude.html"><i class="icon-folder-open"></i> PlaceLocalInclude</a></li>
 <li><a href="packages/siteResearch.html"><i class="icon-folder-open"></i> siteResearch</a></li>
 </ul>
 </li>
@@ -36,10 +35,10 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">391</span></a></li>
+                <span class="label label-info">25</span></a></li>
 <li><a href="markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul><li>todo 
-                <span class="label label-info">8</span>
+                <span class="label label-info">11</span>
 </li></ul></a></li>
 <li><a href="deprecated.html"><i class="icon-stop"></i> Deprecated elements 
                 <span class="label label-info">0</span></a></li>
@@ -59,9 +58,11 @@
 <li class="nav-header">Navigation</li>
 <li><a href="#Classes/Crawler.php"><i class="icon-file"></i>Classes/Crawler.php</a></li>
 <li><a href="#Classes/PHPCurlCrawler.php"><i class="icon-file"></i>Classes/PHPCurlCrawler.php</a></li>
+<li><a href="#config/services.php"><i class="icon-file"></i>config/services.php</a></li>
 <li><a href="#DB/DatabaseResultInterface.php"><i class="icon-file"></i>DB/DatabaseResultInterface.php</a></li>
 <li><a href="#Export/CSVExport.php"><i class="icon-file"></i>Export/CSVExport.php</a></li>
 <li><a href="#Filters/FilterExternalUrls.php"><i class="icon-file"></i>Filters/FilterExternalUrls.php</a></li>
+<li><a href="#Tweaks/KeepOnlyPages.php"><i class="icon-file"></i>Tweaks/KeepOnlyPages.php</a></li>
 </ul></div>
 <div class="span8">
 <ul class="breadcrumb">
@@ -73,13 +74,13 @@
 <div class="alert alert-info">
                         The following markers were found:
                         <ul><li>todo 
-                <span class="label label-info">8</span>
+                <span class="label label-info">11</span>
 </li></ul>
 </div>
 <div id="marker-accordion">
 <div class="package-contents">
 <a name="Classes/Crawler.php" id="Classes/Crawler.php"></a><h3>
-<i class="icon-file"></i>Classes/Crawler.php<small style="float: right;padding-right: 10px;">2</small>
+<i class="icon-file"></i>Classes/Crawler.php<small style="float: right;padding-right: 10px;">3</small>
 </h3>
 <div><table class="table markers table-bordered">
 <tr>
@@ -97,6 +98,11 @@
 <td>3</td>
 <td>add option to import all links from sitemap.xml file</td>
 </tr>
+<tr>
+<td>todo</td>
+<td>91</td>
+<td>try to move new objects outside of loop. di container is for later</td>
+</tr>
 </table></div>
 </div>
 <div class="package-contents">
@@ -111,8 +117,25 @@
 </tr>
 <tr>
 <td>todo</td>
-<td>133</td>
+<td>132</td>
 <td>test speed vs pageheaders method</td>
+</tr>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="config/services.php" id="config/services.php"></a><h3>
+<i class="icon-file"></i>config/services.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>todo</td>
+<td>3</td>
+<td>not yet implemented</td>
 </tr>
 </table></div>
 </div>
@@ -177,13 +200,30 @@
 </tr>
 </table></div>
 </div>
+<div class="package-contents">
+<a name="Tweaks/KeepOnlyPages.php" id="Tweaks/KeepOnlyPages.php"></a><h3>
+<i class="icon-file"></i>Tweaks/KeepOnlyPages.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>todo</td>
+<td>15</td>
+<td>implement this in the crawler, not in the tweaks since it's more a filter</td>
+</tr>
+</table></div>
+</div>
 </div>
 </div>
 </div>
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a10</a> and<br>
-            generated on 2012-10-14T13:30:21+02:00.<br></footer></div>
+            generated on 2012-12-12T16:41:33+01:00.<br></footer></div>
 </div>
 </body>
 </html>

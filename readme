@@ -1,11 +1,88 @@
 siteResearch:
-=============
+
 
 Technical requirements:
 -----------------------
 * PHP
 * MYSql
 * Terminal
+* Composer => Symfony
 
 Your environement should support running PHP from the command line. 
-A recent version of PHP 5.3 or up is needed as well as a recent version of MYSql.
+A recent version of PHP 5.3 or up is needed as well as a recent version of MySql.
+
+Install:
+--------
+1. Copy siteresearch to a folder accessible for php cli. 
+2. navigate to  the root folder of siteResearch and update composer by typing
+the following command From the commandline run 
+"php composer.phar install". This should download all dependancys in a vendor
+folder in the same directory. 
+In the siteResearch src directory you can find the Crawler directory. Read on to
+understand the inner workings of the crawler
+
+How the crawler works:
+----------------------
+To start the crawler you call runCrawler.php via the commandline. You do this by
+writing php runCrawler.php --url "a starting url for the domain you want to crawl"
+
+The script will then add this url to a database and start crawling it as first url.
+All urls that are found on this page are then added to the database as urls to crawl.
+From here on the process is repeated until no new urls are found.
+
+The siteResearch/Crawler package also allows you to define tweaks and filters.
+These allow you to customize your crawlresults.
+
+###Tweaks: 
+are php scripts that tweak the found urls.
+An exaple of this could be "strip all parameters from the url"
+This would turn http://www.bbc.co.uk/index.php?weather=true and
+http://www.bbc.co.uk/index.php?sports=true into one url. Saving you a lot of 
+crawling time. A full list of available tweaks can be found in the Tweaks folder.
+
+###Filters:
+are php scripts that will filter out the results of the crawler.
+(Tweaks alter urls, filters remove them from the results) A good example 
+is the filterExtrnalUrls script. This allows you to verify each found url against
+a set of given values. If the values are not found in the url, the url will be 
+stripped.
+
+##Setting up your crawler
+First you should decide on what urls to strip from the crawling. This is done by 
+providing a set of values to the FilterExternalUrls Filter. 
+Let's start by explaining how this works:
+
+Call php filterUrls.php with one of 3 parameters:
+1. "php filterUrls.php -r" will return the contents of the filterExternalUrls 
+xml file.
+
+The values between the domain tags are checked for each url
+(expl <domain>bbc.co.uk</domain>). If none of the values are found in the
+url, the url is stripped by the crawler and not added to the crawling queue.
+In the above example http://www.bbc.com/test will be stripped but 
+http://www.bbc.co.uk/weather/today.html will not.
+
+
+2. Updating this list can be done with the -a (append) parameter.
+If we would like to crawl bbc.co.uk we could for example provide the setting
+php filterUrls.php -a "bbc.co.uk". The crawler would then accept any url that 
+contains bbc.co.uk. Crawling only the news section would be as simple as 
+php filterUrls.php -a "http://www.bbc.com/news/". 
+Beware that if you define multiple filters, the more specific will overwrite 
+more general ones. Thus if you add bbc.co.uk and bbc.co.uk/weather to the list 
+(filterUrls.php -a "bbc.co.uk,bbc.co.uk/weather), only the urls with 
+bbc.co.uk/weather will be kept.
+
+3. The -a append adds urls to the already existing list. If you want to create 
+a new list from scratch, you should use the -w (write) parameter. 
+The filterExternalUrls.xml file will be overwritten with the new values.
+expl. php filterUrls.php -w "www.bbc.co.uk,bbc.com"
+
+After configuring the crawler it's time to launch the script.
+The Crawler can be launched with php runCrawler.php --url "your url". 
+The --url parameter is mandatory. This is the first page of the domain you want
+to crawl. If all goes well, your terminal should display a message saying that 
+the crawler started. After that a series of dots will appear. This is an indication
+that the crawler is crawling pages. Per finished page, a dot will appear. 
+For more information about how to tweak the crawler, please see the wiki.
+

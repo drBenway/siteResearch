@@ -62,8 +62,34 @@ class PageCrawler
             array_push($this->urls, $link->getUri());
         }
         unset($crwlr);
-
+        $this->removeMailto();
+        $this->removeJavascript();
         return $this->urls;
+    }
+    
+    
+    private function removeMailto()
+    {
+        $return = array();
+        foreach ($this->urls as $url){
+            if(strpos($url,'mailto:') === false)
+            {
+                array_push($return, $url);
+            }
+        }
+        $this->urls= $return;  
+    }
+    
+    private function removeJavascript ()
+    {
+         $return = array();
+        foreach ($this->urls as $url){
+            if(strpos($url,'javascript:') === false)
+            {
+                array_push($return, $url);
+            }
+        }
+        $this->urls= $return;        
     }
 
     /**

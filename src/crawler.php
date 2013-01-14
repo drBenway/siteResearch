@@ -13,6 +13,7 @@ $application = new Application();
 
 $application->add(new CMDLine\FromUrl);
 $application->add(new CMDLine\CSVExport);
+$application->add(new CMDLine\DotExport);
 $application->add(new CMDLine\SitemapExport);
 $application->add(new CMDLine\FromSitemap);
 $application->add(new CMDLine\FilterUrls);

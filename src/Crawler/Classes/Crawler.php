@@ -137,7 +137,8 @@ class Crawler
 
     public function saveHtml($html)
     {
-        $this->db->saveHTML($this->getCurrentPage(),$html);
+        $md5 = md5($html);
+        $this->db->saveHTML($this->getCurrentPage(),$html,$md5);
 
     }
     /**

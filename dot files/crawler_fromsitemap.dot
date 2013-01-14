@@ -1,0 +1,39 @@
+digraph G{
+lableloc = "t"
+label="crawler.php fromsitemap command"
+node [shape=box color="#9ACEEB"]
+edge [color="#FF00FF"]
+fromsitemap [label = "crawler.php fromsitemap 'param'"]
+store [label = "store sitemapurls in DB"]
+crawler [label="start crawler"]
+unparsedurls [label="unparsed urls?" shape="diamond"]
+geturltoworkon [label = "get url from DB"]
+gethtml [label = "get html from url"]
+parseforlinks [label ="pars html for links"]
+hastweaks [label ="need tweeks?" shape="diamond"]
+hasfilters [label = "need filters?" shape ="diamond"]
+tweaks [label="cleanup links with tweaks"]
+filters [label="filter links with filters"]
+add [label ="add links to DB"]
+end [label ="end"]
+fromurl -> store
+store -> crawler
+crawler -> unparsedurls
+
+subgraph cluster0 {
+	color= blue;
+unparsedurls ->geturltoworkon [label ="yes"]
+geturltoworkon -> gethtml
+gethtml->parseforlinks
+parseforlinks ->hastweaks 
+hastweaks -> hasfilters [label="no"]
+hastweaks ->tweaks [label="yes"]
+hasfilters ->add [label="no"]
+hasfilters -> filters [label = "yes"]
+tweaks ->hasfilters
+filters ->add
+add->unparsedurls
+}
+
+unparsedurls ->end [label="no"]
+}

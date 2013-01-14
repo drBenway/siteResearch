@@ -7,8 +7,9 @@
  * @author Yves Peeters
  */
 
-namespace config;
+namespace siteResearch\Config;
 
+use PDO;
 /**
  * Class to set up the database for siteResearch
  *
@@ -115,12 +116,15 @@ class DataBaseSetup extends PDO
                 `header` SMALLINT( 4 )  NULL DEFAULT '0',
                 `found` BOOLEAN  NULL DEFAULT '0'
                 )";
+
+
+
         $this->exec($query);
-        $query = "CREATE TABLE `crawlerhtml` (
-                `id` int NOT NULL AUTO_INCREMENT primaery key,
-                `urlid` int(255) NOT NULL,
-                `html` blob NOT NULL
-                )";
+        $query = "CREATE  TABLE IF NOT EXISTS `crawlerhtml` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+  `urlid` INT(255) NOT NULL ,
+  `html` BLOB NOT NULL ,
+  `md5` VARCHAR(255) NOT NULL) ";
         $this->exec($query);
     }
 

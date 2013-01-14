@@ -75,6 +75,7 @@ class CrawlerResultsDB extends DBPDO implements DatabaseResultInterface
 
         return $return;
     }
+    
 
     /**
      * returns the amount of urls in the crawler

@@ -22,39 +22,85 @@ class FilterUrls extends Console\Command\Command
                 ->addOption(
                         'write', 'w', InputOption::VALUE_REQUIRED, 'write a new filtersettings file', 1)
                 ->addOption(
-                        'read', 'r', InputOption::VALUE_NONE, 'if set outputs the content of the xml')
-                ->setHelp('filter urls sets a list of strings that you want to be in the urls of the crawler.
-                    if for example you only want pages from bbc, you have to make sure that "bbc.co.uk" is in your filter list.
-                    if for example you only want to have the weather subdomain, you add "weather.bbc.co.uk" to the list.
-                        ');
+                        'read', 'r', InputOption::VALUE_NONE, 'if set outputs the content of the xml that contains the settings')
+                ->setHelp('
+                    filter urls manages a list of strings that you want to
+                    be in the urls of the crawler. If for example you only 
+                    want pages from bbc, you have to make sure that "bbc.co.uk" 
+                    is in your filter list.
+                    if for example you only want to have the weather subdomain, 
+                    you add "weather.bbc.co.uk" to the list.
+                    
+                    The list of settings are kept in an xml file in the 
+                    filter directory. It is structured like this:
+                    <?xml version="1.0"?>
+                    <FilterExternalUrls>
+                        <domain>bbc.co.uk</domain>
+                    </FilterExternalUrls>
+                    
+                    You can make changes in the xml file itself or use this 
+                    command via the CLI to manage your changes.
+                    
+                    
+                    Appending:
+                    ----------
+                    php crawler.php filterurls -a "mystring"
+                    will add the "mystring" to the list resulting in the xml
+                    file below:
+                    <?xml version="1.0"?>
+                    <FilterExternalUrls>
+                        <domain>bbc.co.uk</domain>
+                        <domain>mystring</domain>
+                    </FilterExternalUrls>
+                    
+                    Writing
+                    -------
+                    php crawler.php filterurls -w "www.mydomain.com,www.myotherdomain.com"
+                    will overwrite the existing settings file and return the 
+                    content below:
+                    <?xml version="1.0"?>
+                    <FilterExternalUrls>
+                        <domain>www.mydomain.com</domain>
+                        <domain>www.myotherdomain.com</domain>
+                    </FilterExternalUrls>
+                    
+                    Reading
+                    -------
+                    To read the content of the settings file, just use the 
+                    filterurls command with the -r option
+                    php crawler.php filterurls -r should return the correct
+                    content
+                    
+                    ');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $options = $input->getOptions();
-        print_r($options);
+        
         if ($options['read'] == "1") {
             $this->outputFile($output);
         } else {
             foreach ($options as $key => $value) {
-
+                if (is_string($value)){
                 switch ($key) {
                     case 'append':
                         $this->appendConfig($value);
-                        $output->writeline("content appended");
+                        $output->writeln("content appended");
                         break;
                     case 'write':
                         $this->writeConfig($value);
-                        $output->writeline("content written");
+                        $output->writeln("content written");
                         break;
 
                     default:
                         break;
                 }
+                }
             }
         }
 
-        print_r($options);
+        
     }
 
     protected function outputFile($output)

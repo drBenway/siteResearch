@@ -24,7 +24,7 @@ if (!extension_loaded('openssl')) {
  * make mysql connection
  */
 try {
-    $db = new DataBaseSetup($mysqlsetup["mysql_admin"]["usr"],
+    $db = new Config\DataBaseSetup($mysqlsetup["mysql_admin"]["usr"],
                     $mysqlsetup["mysql_admin"]["pass"],
                     $mysqlsetup["mysql_database"]["hostname"]);
 

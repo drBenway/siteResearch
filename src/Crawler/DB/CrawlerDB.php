@@ -188,7 +188,7 @@ Class CrawlerDB extends DBPDO implements DatabaseInterface {
         $this->exec($query);
     }
 
-    public function saveHTML($url,$html)
+    public function saveHTML($url,$html,$md5)
     {
         $query = "select id from crawler where url = '$url'";
         $stmt = $this->query($query);
@@ -197,9 +197,9 @@ Class CrawlerDB extends DBPDO implements DatabaseInterface {
         if (!isset($urlid)) {
             $urlid = 0;
         }
-        $query = "insert ignore into crawlerhtml (urlid,html) values (?,?)";
+        $query = "insert ignore into crawlerhtml (urlid,html,md5) values (?,?,?)";
         $stmt = $this->prepare($query, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-        $stmt->execute(array($urlid, $html));
+        $stmt->execute(array($urlid, $html,$md5));
     }
 
 }

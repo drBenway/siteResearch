@@ -18,25 +18,28 @@ use Symfony\Component\Console\Input\InputArgument,
 /**
  * crawler command to export crawler table to a csv file
  */
-class CSVExport extends Console\Command\Command
+class DotExport extends Console\Command\Command
 {
     protected function configure()
     {
         $this
-                ->setName('csvexport')
-                ->addArgument('csvexport', InputArgument::REQUIRED, 'export content')
+                ->setName('dotexport')
+                ->addArgument('dotexport', InputArgument::REQUIRED, 'export content')
                 ->setDescription('export content')
                 ->setHelp('
-                    export the crawler database to a csv file (can be used for example in Excel)\n
-                    example: php crawler.php csvexport "test.csv"
-                    ');
+                    export the crawler database to a dot file
+                    dot files can be used to generate graphical representations of info\n
+                    For more info on what you can do with dot files, see the Graphviz\n 
+                    application as well as Gephi\n
+                        example: php crawler.php dotexport "test.dot"
+                        ');
 
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $filepath = $input->getArgument('csvexport');
-        $exporter = new Export\CSVExport($filepath);
+        $filepath = $input->getArgument('dotexport');
+        $exporter = new Export\DotExport($filepath);
         $exporter->export();
 
         $output->writeln("exported results to" . $filepath);

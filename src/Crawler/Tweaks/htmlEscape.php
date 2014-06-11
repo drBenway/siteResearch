@@ -23,14 +23,18 @@ class htmlEscape implements TweakInterface
      */
     public function tweak($urls)
     {
-        $returnarray = array();
-        foreach ($urls as $url) {
-            if (is_string($url)) {
-                array_push($returnarray, htmlentities($url, ENT_QUOTES, "UTF-8"));
+        if (is_array($urls)) {
+            $returnarray = array();
+            foreach ($urls as $url) {
+                if (is_string($url)) {
+                    array_push($returnarray, htmlentities($url, ENT_QUOTES, "UTF-8"));
+                }
             }
-        }
 
-        return $returnarray;
+            return $returnarray;
+        } else {
+            throw new \InvalidArgumentException('htmlEscape expects parameter to be an array');
+        }
     }
 
 }

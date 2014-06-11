@@ -1,0 +1,478 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>API Documentation » \Crawler\Classes\CrawlerSettings</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">API Documentation</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/Crawler.html"><i class="icon-th"></i> Crawler</a></li>
+<li><a href="../namespaces/siteResearch.html"><i class="icon-th"></i> siteResearch</a></li>
+<li><a>Packages</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+<li><a href="../packages/siteResearch.html"><i class="icon-folder-open"></i> siteResearch</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">92</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<div class="btn-toolbar">
+<div class="btn-group visibility" data-toggle="buttons-checkbox">
+<button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button>
+</div>
+<div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i title="Methods" class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public "><a href="#method___construct" title="__construct() :: constructor for crawlersettings"><span class="description">constructor for crawlersettings</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#method_getCurl" title="getCurl() :: returns curl object"><span class="description">returns curl object</span><pre>getCurl()</pre></a></li>
+<li class="method public "><a href="#method_getDb" title="getDb() :: return database object"><span class="description">return database object</span><pre>getDb()</pre></a></li>
+<li class="method public "><a href="#method_getFilters" title="getFilters() :: return filter object"><span class="description">return filter object</span><pre>getFilters()</pre></a></li>
+<li class="method public "><a href="#method_getStore" title="getStore() :: get the store html property"><span class="description">get the store html property</span><pre>getStore()</pre></a></li>
+<li class="method public "><a href="#method_getStripIndex" title="getStripIndex() :: do we strip index files from urls?"><span class="description">do we strip index files from urls?</span><pre>getStripIndex()</pre></a></li>
+<li class="method public "><a href="#method_getStripParameters" title="getStripParameters() :: do we strip parameters from urls?"><span class="description">do we strip parameters from urls?</span><pre>getStripParameters()</pre></a></li>
+<li class="method public "><a href="#method_getTweaks" title="getTweaks() :: returns Tweak object"><span class="description">returns Tweak object</span><pre>getTweaks()</pre></a></li>
+<li class="method public "><a href="#method_getType" title="getType() :: get the crawler type"><span class="description">get the crawler type</span><pre>getType()</pre></a></li>
+<li class="method public "><a href="#method_getUrl" title="getUrl() :: get the starting url"><span class="description">get the starting url</span><pre>getUrl()</pre></a></li>
+<li class="method public "><a href="#method_setCurl" title="setCurl() :: curl object to be used"><span class="description">curl object to be used</span><pre>setCurl()</pre></a></li>
+<li class="method public "><a href="#method_setDb" title="setDb() :: use this database to store the results"><span class="description">use this database to store the results</span><pre>setDb()</pre></a></li>
+<li class="method public "><a href="#method_setFilters" title="setFilters() :: selects a filterset"><span class="description">selects a filterset</span><pre>setFilters()</pre></a></li>
+<li class="method public "><a href="#method_setStore" title="setStore() :: set the store html property"><span class="description">set the store html property</span><pre>setStore()</pre></a></li>
+<li class="method public "><a href="#method_setStripIndex" title="setStripIndex() :: Do you want to strip the index yes/no"><span class="description">Do you want to strip the index yes/no</span><pre>setStripIndex()</pre></a></li>
+<li class="method public "><a href="#method_setStripParameters" title="setStripParameters() :: do you want to strip parameters from the url yes/no"><span class="description">do you want to strip parameters from the url yes/no</span><pre>setStripParameters()</pre></a></li>
+<li class="method public "><a href="#method_setTweaks" title="setTweaks() :: select a tweaks set"><span class="description">select a tweaks set</span><pre>setTweaks()</pre></a></li>
+<li class="method public "><a href="#method_setType" title="setType() :: set the parsing type"><span class="description">set the parsing type</span><pre>setType()</pre></a></li>
+<li class="method public "><a href="#method_setUrl" title="setUrl() :: sets the url to parse"><span class="description">sets the url to parse</span><pre>setUrl()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i title="Properties" class="icon-custom icon-property"></i> Properties
+                    <ul></ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul>
+<li class="property private "><a href="#property_curl" title="$curl() :: object to fetch pages"><span class="description"></span><pre>$curl</pre></a></li>
+<li class="property private "><a href="#property_db" title="$db() :: link to the databaseclass stat stores our urls"><span class="description"></span><pre>$db</pre></a></li>
+<li class="property private "><a href="#property_filters" title="$filters() :: link to the filters object"><span class="description"></span><pre>$filters</pre></a></li>
+<li class="property private "><a href="#property_store" title="$store() :: should the crawler store the obtained html yes/no"><span class="description"></span><pre>$store</pre></a></li>
+<li class="property private "><a href="#property_stripIndex" title="$stripIndex() :: do we want to strip index.html, index.php from the url's that we store"><span class="description"></span><pre>$stripIndex</pre></a></li>
+<li class="property private "><a href="#property_stripParameters" title="$stripParameters() :: do we want to remove parameters from urls that we store"><span class="description"></span><pre>$stripParameters</pre></a></li>
+<li class="property private "><a href="#property_tweaks" title="$tweaks() :: link to the tweak object"><span class="description"></span><pre>$tweaks</pre></a></li>
+<li class="property private "><a href="#property_type" title="$type() :: crawle type, this is verified by the crawler agains an array of crawltypes"><span class="description"></span><pre>$type</pre></a></li>
+<li class="property private "><a href="#property_url" title="$url() :: start url"><span class="description"></span><pre>$url</pre></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a id="\Crawler\Classes\CrawlerSettings"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i title="Classes" class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/Crawler.html">Crawler</a></li>
+<li>
+<span class="divider">\</span><a href="../namespaces/Crawler.Classes.html">Classes</a>
+</li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/Crawler.Classes.CrawlerSettings.html">CrawlerSettings</a>
+</li>
+</ul>
+<div class="element class">
+<p class="short_description">holds the configuration data for the crawler</p>
+<div class="details">
+<div class="long_description">url, crawletype, database link and filters are mandatory</div>
+<h3>
+<i title="Methods" class="icon-custom icon-method"></i> Methods</h3>
+<a id="method___construct"></a><div class="element clickable method public method___construct" data-toggle="collapse" data-target=".method___construct .collapse" title="public">
+<h2>constructor for crawlersettings</h2>
+<pre>__construct(string $url, string $type, object $db, object $tweaks, object $filters, boolean $store<code> = false</code>, boolean $stripIndex<code> = true</code>, boolean $stripParameters<code> = true</code>) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$url</h4>
+<code>string</code>
+</div>
+<div class="subelement argument">
+<h4>$type</h4>
+<code>string</code>
+</div>
+<div class="subelement argument">
+<h4>$db</h4>
+<code>object</code>
+</div>
+<div class="subelement argument">
+<h4>$tweaks</h4>
+<code>object</code>
+</div>
+<div class="subelement argument">
+<h4>$filters</h4>
+<code>object</code>
+</div>
+<div class="subelement argument">
+<h4>$store</h4>
+<code>boolean</code>
+</div>
+<div class="subelement argument">
+<h4>$stripIndex</h4>
+<code>boolean</code>
+</div>
+<div class="subelement argument">
+<h4>$stripParameters</h4>
+<code>boolean</code>
+</div>
+</div></div>
+</div>
+<a id="method_getCurl"></a><div class="element clickable method public method_getCurl" data-toggle="collapse" data-target=".method_getCurl .collapse" title="public">
+<h2>returns curl object</h2>
+<pre>getCurl() : object</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>object</code></div>
+</div></div>
+</div>
+<a id="method_getDb"></a><div class="element clickable method public method_getDb" data-toggle="collapse" data-target=".method_getDb .collapse" title="public">
+<h2>return database object</h2>
+<pre>getDb() : object</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>object</code></div>
+</div></div>
+</div>
+<a id="method_getFilters"></a><div class="element clickable method public method_getFilters" data-toggle="collapse" data-target=".method_getFilters .collapse" title="public">
+<h2>return filter object</h2>
+<pre>getFilters() : object</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>object</code></div>
+</div></div>
+</div>
+<a id="method_getStore"></a><div class="element clickable method public method_getStore" data-toggle="collapse" data-target=".method_getStore .collapse" title="public">
+<h2>get the store html property</h2>
+<pre>getStore() : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>boolean</code></div>
+</div></div>
+</div>
+<a id="method_getStripIndex"></a><div class="element clickable method public method_getStripIndex" data-toggle="collapse" data-target=".method_getStripIndex .collapse" title="public">
+<h2>do we strip index files from urls?</h2>
+<pre>getStripIndex() : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>boolean</code></div>
+</div></div>
+</div>
+<a id="method_getStripParameters"></a><div class="element clickable method public method_getStripParameters" data-toggle="collapse" data-target=".method_getStripParameters .collapse" title="public">
+<h2>do we strip parameters from urls?</h2>
+<pre>getStripParameters() : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>boolean</code></div>
+</div></div>
+</div>
+<a id="method_getTweaks"></a><div class="element clickable method public method_getTweaks" data-toggle="collapse" data-target=".method_getTweaks .collapse" title="public">
+<h2>returns Tweak object</h2>
+<pre>getTweaks() : object</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>object</code></div>
+</div></div>
+</div>
+<a id="method_getType"></a><div class="element clickable method public method_getType" data-toggle="collapse" data-target=".method_getType .collapse" title="public">
+<h2>get the crawler type</h2>
+<pre>getType() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_getUrl"></a><div class="element clickable method public method_getUrl" data-toggle="collapse" data-target=".method_getUrl .collapse" title="public">
+<h2>get the starting url</h2>
+<pre>getUrl() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_setCurl"></a><div class="element clickable method public method_setCurl" data-toggle="collapse" data-target=".method_setCurl .collapse" title="public">
+<h2>curl object to be used</h2>
+<pre>setCurl(\Crawler\Classes\type $curl) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$curl</h4>
+<code>\Crawler\Classes\type</code>
+</div>
+</div></div>
+</div>
+<a id="method_setDb"></a><div class="element clickable method public method_setDb" data-toggle="collapse" data-target=".method_setDb .collapse" title="public">
+<h2>use this database to store the results</h2>
+<pre>setDb(\Crawler\Classes\DatabaseInterface $db) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$db</h4>
+<code>\Crawler\Classes\DatabaseInterface</code>
+</div>
+</div></div>
+</div>
+<a id="method_setFilters"></a><div class="element clickable method public method_setFilters" data-toggle="collapse" data-target=".method_setFilters .collapse" title="public">
+<h2>selects a filterset</h2>
+<pre>setFilters(\Crawler\Classes\FilterInterface $filters) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$filters</h4>
+<code>\Crawler\Classes\FilterInterface</code>
+</div>
+</div></div>
+</div>
+<a id="method_setStore"></a><div class="element clickable method public method_setStore" data-toggle="collapse" data-target=".method_setStore .collapse" title="public">
+<h2>set the store html property</h2>
+<pre>setStore(boolean $store) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$store</h4>
+<code>boolean</code>
+</div>
+</div></div>
+</div>
+<a id="method_setStripIndex"></a><div class="element clickable method public method_setStripIndex" data-toggle="collapse" data-target=".method_setStripIndex .collapse" title="public">
+<h2>Do you want to strip the index yes/no</h2>
+<pre>setStripIndex(boolean $stripIndex) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$stripIndex</h4>
+<code>boolean</code>
+</div>
+</div></div>
+</div>
+<a id="method_setStripParameters"></a><div class="element clickable method public method_setStripParameters" data-toggle="collapse" data-target=".method_setStripParameters .collapse" title="public">
+<h2>do you want to strip parameters from the url yes/no</h2>
+<pre>setStripParameters(boolean $stripParameters) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$stripParameters</h4>
+<code>boolean</code>
+</div>
+</div></div>
+</div>
+<a id="method_setTweaks"></a><div class="element clickable method public method_setTweaks" data-toggle="collapse" data-target=".method_setTweaks .collapse" title="public">
+<h2>select a tweaks set</h2>
+<pre>setTweaks(\Crawler\Classes\TweakInterface $tweaks) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$tweaks</h4>
+<code>\Crawler\Classes\TweakInterface</code>
+</div>
+</div></div>
+</div>
+<a id="method_setType"></a><div class="element clickable method public method_setType" data-toggle="collapse" data-target=".method_setType .collapse" title="public">
+<h2>set the parsing type</h2>
+<pre>setType(string $type) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$type</h4>
+<code>string</code>
+</div>
+</div></div>
+</div>
+<a id="method_setUrl"></a><div class="element clickable method public method_setUrl" data-toggle="collapse" data-target=".method_setUrl .collapse" title="public">
+<h2>sets the url to parse</h2>
+<pre>setUrl(string $url) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$url</h4>
+<code>string</code>
+</div>
+</div></div>
+</div>
+<h3>
+<i title="Properties" class="icon-custom icon-property"></i> Properties</h3>
+<a id="property_curl"> </a><div class="element clickable property private property_curl" data-toggle="collapse" data-target=".property_curl .collapse" title="private">
+<h2>object to fetch pages</h2>
+<pre>$curl : \Crawler\Classes\object(curl)</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_db"> </a><div class="element clickable property private property_db" data-toggle="collapse" data-target=".property_db .collapse" title="private">
+<h2>link to the databaseclass stat stores our urls</h2>
+<pre>$db : \Crawler\Classes\objectr</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_filters"> </a><div class="element clickable property private property_filters" data-toggle="collapse" data-target=".property_filters .collapse" title="private">
+<h2>link to the filters object</h2>
+<pre>$filters : object</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_store"> </a><div class="element clickable property private property_store" data-toggle="collapse" data-target=".property_store .collapse" title="private">
+<h2>should the crawler store the obtained html yes/no</h2>
+<pre>$store : \Crawler\Classes\type</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_stripIndex"> </a><div class="element clickable property private property_stripIndex" data-toggle="collapse" data-target=".property_stripIndex .collapse" title="private">
+<h2>do we want to strip index.html, index.php from the url's that we store</h2>
+<pre>$stripIndex : boolean</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_stripParameters"> </a><div class="element clickable property private property_stripParameters" data-toggle="collapse" data-target=".property_stripParameters .collapse" title="private">
+<h2>do we want to remove parameters from urls that we store</h2>
+<pre>$stripParameters : boolean</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_tweaks"> </a><div class="element clickable property private property_tweaks" data-toggle="collapse" data-target=".property_tweaks .collapse" title="private">
+<h2>link to the tweak object</h2>
+<pre>$tweaks : \Crawler\Classes\tweaks</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_type"> </a><div class="element clickable property private property_type" data-toggle="collapse" data-target=".property_type .collapse" title="private">
+<h2>crawle type, this is verified by the crawler agains an array of crawltypes</h2>
+<pre>$type : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_url"> </a><div class="element clickable property private property_url" data-toggle="collapse" data-target=".property_url .collapse" title="private">
+<h2>start url</h2>
+<pre>$url : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.1
+</a> and<br>
+            generated on 2014-06-11T22:40:14+02:00.<br></footer></div>
+</div>
+</body>
+</html>

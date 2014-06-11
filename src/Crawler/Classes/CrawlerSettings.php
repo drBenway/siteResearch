@@ -82,7 +82,7 @@ Class CrawlerSettings {
      * @param boolean $stripIndex
      * @param boolean $stripParameters
      */
-    public function __construct($url, $type, $db, $tweaks, $filters, $store = false, $stripIndex = true, $stripParameters = true)
+    public function __construct($url, $type, \Crawler\DB\DatabaseInterface $db, $tweaks,   $filters, $store = false, $stripIndex = true, $stripParameters = true)
     {
         $this->url = $url;
         $this->type = $type;
@@ -134,7 +134,7 @@ Class CrawlerSettings {
      * use this database to store the results
      * @param DatabaseInterface $db
      */
-    public function setDb(DatabaseInterface $db)
+    public function setDb(\Crawler\DB\DatabaseInterface $db)
     {
         $this->db = $db;
     }
@@ -143,7 +143,7 @@ Class CrawlerSettings {
      * selects a filterset
      * @param FilterInterface $filters
      */
-    public function setFilters(FilterInterface $filters)
+    public function setFilters(\Crawler\Filters\FilterInterface $filters)
     {
         $this->filters = $filters;
     }
@@ -152,7 +152,7 @@ Class CrawlerSettings {
      * select a tweaks set
      * @param TweakInterface $tweaks
      */
-    public function setTweaks(TweakInterface $tweaks)
+    public function setTweaks(\Crawler\Tweaks\TweakInterface $tweaks)
     {
         $this->tweaks = $tweaks;
     }

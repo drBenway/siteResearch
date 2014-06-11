@@ -1,0 +1,30 @@
+digraph G{
+lableloc = "t"
+label="crawler.php filterurls"
+center = true
+node [shape=box color="#9ACEEB"]
+edge [color="#FF00FF"]
+
+
+filter [label = "crawler.php filterurls 'param'"]
+a [label="-a or --append + array of urls"]
+w [label="-w or --write + array of urls"]
+r [label="-r or --read"]
+
+
+
+filter-> a
+filter -> w
+filter -> r
+
+
+
+writeresult [label="write new xml"]
+appendresult [label="append to xml"]
+readresult [label ="display content xml"]
+
+a -> appendresult
+w -> writeresult
+r -> readresult
+
+}

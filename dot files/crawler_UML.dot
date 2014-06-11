@@ -1,0 +1,47 @@
+digraph hierarchy {
+
+node[shape=record,style=filled,fillcolor="#dde0ff",color="#7884ff"]
+edge[dir=back, arrowtail=empty]
+
+2[label = "{PageCrawler| -$pagehtml :String \n - $urls : Array|- parsePage \n -removeJavascript \n -removeMailto /n+ _construct\n+ getPageHTML\n + getPageUrls}"]
+1 [label = "{Crawler||- runTweak \n -runFilters \n+ _construct \n + getCurrentPage \n + setCurrentPage \n +startCrawler \n +addUrls}"]
+3 [label = "{CrawlerSettings|- curl\n- db\n- filters\n- store\n- stripindex\n- tweaks\n- url\n- type\n|+ getCurl\n+ setCurl\n+ getDb\n+ setDb\n+ getFilters\n+ setFilters\n+ getStore\n+ setStore\n+ getStripIndex\n+ setStripIndex\n+ getTweaks\n+ setTweaks\n+ getType\n+ setType\n+ getUrl\n+ setUrl\n}"]
+4 [label = "{PHPCurlCrawler||}"]
+2 -> 4
+
+
+
+10 [label = "ExportAbstract"]
+11 [label = "CSVExport"]
+12 [label = "DotExport"]
+13 [label = "SitemapExport"]
+11 -> 10
+12 -> 10
+13 -> 10
+
+60 [label="ImportAbstract"]
+61 [label="SitemapImport"]
+61 -> 60
+
+20 [label = "FilterInterface"]
+21 [label="FilterExternalUrls"]
+22 [label="Xml with settings"]
+20->21
+21->22
+30 [label = "TweakInterface"]
+31 [label = "stripHash"]
+32 [label= "stripIndex"]
+33 [label ="toLowercase"]
+34 [label ="stripParameters"]
+35 [label ="keepOnlyPages"]
+36 [label ="htmlEscape"]
+31 -> 30
+32 -> 30
+33 -> 30
+34 -> 30
+35 -> 30
+36 -> 30
+
+50 [label = "DatabaseInterface||+ addUrls\n+ getUrlToWorkOn\n+ setUrlAsDone\n+ getUrlsToDo\n+ getUrlsDone\n+ setUrlAsBad\n+ setUrlAsGood\n+ setResponsHeader}"]
+1 -> 3 [arrowtail= normal]
+}

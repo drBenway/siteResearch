@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * Import from sitemap command
+ *
+ * @package siteResearch
+ * @subpackage crawler
+ * @author Yves Peeters
+ */
+
 namespace Crawler\CLI;
 
 use Symfony\Component\Console\Input\InputArgument,
@@ -7,12 +15,18 @@ use Symfony\Component\Console\Input\InputArgument,
     Symfony\Component\Console,
     Symfony\Component\Console\Input\INputInterface,
     Symfony\Component\Console\Output\OutputInterface,
+    Symfony\Component\DependencyInjection\ContainerBuilder,
+    Symfony\Component\Config\FileLocator,
+    Symfony\Component\DependencyInjection\Loader\XmlFileLoader,
     Crawler\DB as DB,
     Crawler\Tweaks as Tweaks,
     Crawler\Filters as Filters,
     Crawler\Classes as Classes,
     Crawler\Import as Import;
 
+/**
+ * start crawling based on a sites sitemap file
+ */
 class FromSitemap extends Console\Command\Command
 {
     protected function configure()
@@ -20,7 +34,7 @@ class FromSitemap extends Console\Command\Command
         $this
                 ->setName('fromsitemap')
                 ->addArgument('fromsitemap', InputArgument::REQUIRED, 'string containing path to sitemap')
-                ->setDescription('The sitemap we want to crawl')
+                ->setDescription('start crawling based on a sitemap file')
                 ->setHelp('the sitemap command takes an absolute url as starting point for the crawling
                 example:
                 php crawler.php fromsitemap "http://www.bbc.co.uk/sitemap.xml"')
@@ -34,6 +48,10 @@ class FromSitemap extends Console\Command\Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $servicecontainer = new ContainerBuilder();
+         $loader = new XmlFileLoader($servicecontainer, new FileLocator(__DIR__.'/../config/'));
+         $loader->load("dic.xml");
+
         $filepath = $input->getArgument('fromsitemap');
 
         /**
@@ -47,27 +65,24 @@ class FromSitemap extends Console\Command\Command
          * start crawler
          */
 
-        $db = new DB\CrawlerDB;
+        $db = $servicecontainer->get('db');
 
         if (gettype($input->getOption('tweaks')) == 'string') {
-
             $tweaksloc = $input->getOption('tweaks');
-            $tweaks = new Tweaks\TweakRunner($tweaksloc);
-            $tweaks->init();
-        } else {
-            $tweaks = new Tweaks\TweakRunner('Crawler/Tweaks/tweaks.xml');
-
-            $tweaks->init();
-
+            //update parameter in dic
+            $servicecontainer->setParameter('tweaks.constructorinput', $tweaksloc);
         }
+
+        $tweaks = $servicecontainer->get('tweaks');
+        $tweaks->init();
 
         if (gettype($input->getOption('filters')) == 'string') {
-
-            $filters = $input->getOption('filters');
-        } else {
-            $filters = new Filters\FilterRunner('Crawler/Filters/filters.xml');
-            $filters->init();
+            $filter = $input->getOption('filters');
+            //update parameter in dic
+            $servicecontainer->setParameter('filters.constructorinput', $filter);
         }
+        $filters = $servicecontainer->get('filters');
+        $filters->init();
 
         if ($input->getOption('store')) {
             $store = true;

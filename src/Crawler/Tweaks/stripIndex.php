@@ -46,12 +46,16 @@ class stripIndex implements TweakInterface
      */
     public function tweak($urls)
     {
-        $returnarray = array();
-        foreach ($urls as $url) {
-            array_push($returnarray, $this->strip($url));
-        }
+        if (is_array($urls)) {
+            $returnarray = array();
+            foreach ($urls as $url) {
+                array_push($returnarray, $this->strip($url));
+            }
 
-        return $returnarray;
+            return $returnarray;
+        } else {
+            throw new \InvalidArgumentException("stripIndex expects argument to be an array");
+        }
     }
 
 }

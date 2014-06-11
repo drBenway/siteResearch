@@ -32,12 +32,16 @@ class stripHash implements TweakInterface
 
     public function tweak($urls)
     {
-        $returnarray = array();
-        foreach ($urls as $url) {
-            array_push($returnarray, $this->removeHash($url));
-        }
+        if (is_array($urls)) {
+            $returnarray = array();
+            foreach ($urls as $url) {
+                array_push($returnarray, $this->removeHash($url));
+            }
 
-        return $returnarray;
+            return $returnarray;
+        } else {
+            throw new \InvalidArgumentException("stripHash expects argument to be an array");
+        }
     }
 
 }

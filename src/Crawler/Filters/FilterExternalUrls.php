@@ -27,9 +27,9 @@ class FilterExternalUrls implements FilterInterface
      * construct FilterExternalUrls object
      * @param string $config
      */
-    public function __construct()
+    public function __construct($configfile)
     {
-        $this->loadConfig(__DIR__."/FilterExternalUrls.xml");
+        $this->loadConfig(__DIR__."/".$configfile);
     }
 
     /**

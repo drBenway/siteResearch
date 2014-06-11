@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <parameters>
+        <parameter key="tweaks.constructorinput" >tweaks.xml</parameter>
+        <parameter key="filters.constructorinput" >filters.xml</parameter>
+        <parameter key="brokenlinks.constructorinput">brokenlinks.csv</parameter>
+        <parameter key="csvexport.constructorinput">csvexport.csv</parameter>
+        <parameter key="dotexport.constructorinput">dotexport.dot</parameter>
+        <parameter key="gexfexport.constructorinput">gexfexport.gexf</parameter>
+        <parameter key="sitemapexport.constructorinput">sitemap.xml</parameter>
+    </parameters>
+    <services>
+        <service id="db" class="Crawler\DB\CrawlerDB">
+        </service>
+        <service id="newdb" class="Crawler\DB\DoctrineDB">
+        </service>
+        <service id="newresultdb" class="Crawler\DB\DoctrineResultDB">
+        </service>
+
+        <!-- TWEAKS -->
+        <service id="tweaks" class="Crawler\Tweaks\TweakRunner">
+            <argument>%tweaks.constructorinput%</argument>
+        </service>
+        <service id="filters" class="Crawler\Filters\FilterRunner">
+            <argument>%filters.constructorinput%</argument>
+        </service>
+        <service id="dom" class="DOMDocument">
+        </service>
+
+
+        <!-- EXPORT -->
+        <service id="dotexport" class="Crawler\Export\DotExport">
+            <argument>%dotexport.constructorinput%</argument>
+            <argument type="service" id="newresultdb" />
+        </service>
+        <service id="gexfexport" class="Crawler\Export\GEXFExport">
+            <argument>%gexfexport.constructorinput%</argument>
+            <argument type="service" id="newresultdb" />
+        </service>
+        <service id="csvexport" class="Crawler\Export\CSVExport">
+            <argument>%csvexport.constructorinput%</argument>
+            <argument type="service" id="newresultdb" />
+        </service>
+        <service id="brokenlinks" class="Crawler\Export\BrokenLinks">
+            <argument>%brokenlinks.constructorinput%</argument>
+            <argument type="service" id="newresultdb" />
+
+        </service>
+        <service id="sitemapexport" class="Crawler\Export\SitemapExport">
+            <argument>%sitemapexport.constructorinput%</argument>
+            <argument type="service" id="newresultdb" />
+        </service>
+
+        <!-- FILTERS -->
+        <service id="FilterExternalUrls" class="Crawler\Filters\FilterExternalUrls">
+            <argument>FilterExternalUrls.xml</argument>
+        </service>
+
+
+        <service id="FilterUrl" class="Crawler\Filters\FilterUrl">
+            <argument>FilterUrl.xml</argument>
+        </service>
+
+        <!-- TWEAKS -->
+        <service id="htmlEscape" class="Crawler\Tweaks\htmlEscape">
+        </service>
+
+        <service id="keepOnlyPages" class="Crawler\Tweaks\keepOnlyPages">
+        </service>
+        <service id="removeDuplicates" class="Crawler\Tweaks\removeDuplicates">
+        </service>
+        <service id="stripHash" class="Crawler\Tweaks\stripHash">
+        </service>
+        <service id="stripParameters" class="Crawler\Tweaks\stripParameters">
+        </service>
+        <service id="stripTrackingFromUrl" class="Crawler\Tweaks\stripTrackingFromUrl">
+        </service>
+        <service id="toLowercase" class="Crawler\Tweaks\toLowercase">
+        </service>
+        <service id="curl" class="Crawler\Classes\PHPCurlCrawler">
+        </service>
+
+        <service id="brokenlinks" class="Crawler\Export\BrokenLinks">
+            <argument>%brokenlinks.constructorinput%</argument>
+        </service>
+
+    </services>
+</container>

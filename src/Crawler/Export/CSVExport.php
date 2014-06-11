@@ -1,4 +1,5 @@
 <?php
+
 /**
  * CSV export for crawler tables
  *
@@ -8,6 +9,7 @@
  */
 
 namespace Crawler\Export;
+
 use Crawler\DB as DB;
 
 /**
@@ -44,13 +46,16 @@ class CSVExport extends ExportAbstract
      * create csvexport object
      * @param string $filename
      */
-    public function __construct($filename)
+    public function __construct($filename,  \Crawler\DB\DatabaseInterface $db)
     {
-        $this->db = new DB\CrawlerResultsDB();
         $this->setFilename($filename);
-        $this->generateList();
+        $this->setDB($db);
     }
 
+    private function setDB($db)
+    {
+        $this->db = $db;
+    }
     /**
      * get a listing of the crawler table
      */
@@ -81,14 +86,15 @@ class CSVExport extends ExportAbstract
 
         // Write the spreadsheet column titles / labels
         fputcsv($handle, array('id', 'url', 'origin', 'parsed', 'header', 'found'));
-
+        //print_r($this->list);
         // Write all the user records to the spreadsheet
         foreach ($this->list as $obj) {
-            fputcsv($handle, array($obj->id, $obj->url, $obj->origin, $obj->parsed, $obj->header, $obj->found));
+            fputcsv($handle, array($obj->getId(), $obj->getUrl(), $obj->getOrigin(), $obj->getParsed(), $obj->getHeader(), $obj->getFound()));
         }
 
         // Finish writing the file
         fclose($handle);
+        echo "written csv file to:".$this->filename;
     }
 
 }

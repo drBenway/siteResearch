@@ -54,7 +54,7 @@ class Crawler
      * Holds the current page
      * @var String $current_page
      */
-    private $current_page;
+    private $current_url;
 
     /**
      * constructor
@@ -74,59 +74,67 @@ class Crawler
      * gets the currtent page
      * @return String
      */
-    public function getCurrentPage()
+    private function getCurrentUrlObj()
     {
-        return $this->current_page;
+        return $this->current_url;
     }
 
     /**
      * sets the current page
      * @param String $current_page
      */
-    public function setCurrentPage($current_page)
+    private function setCurrentUrlObj($current_page)
     {
-        $this->current_page = $current_page;
+        $this->current_url = $current_page;
     }
 
     /**
      * Start crawling
      * {@filesource}
      * @todo try to move new objects outside of loop. di container is for later
+     * @todo think $this->db->getUrlsToDo() add new function that querys and halts if one url is found
      */
     public function startCrawler()
     {
+
         while (count($this->db->getUrlsToDo()) > 0) {// Check db for urls that have not been parsed
-            $starttime = microtime(true);
-            $this->setCurrentPage($this->db->getUrlToWorkOn()); // get a page to parse
-            $this->crwlr = new PHPCurlCrawler();
+            //$starttime = microtime(true);
+
+            $this->setCurrentUrlObj($this->db->getUrlToWorkOn()); // get a page to parse
+            $this->crwlr = new CurlHelper();
             $this->crwlr->init();
-            $request = $this->crwlr->validHtmlPage($this->getCurrentPage());
+            $request = $this->crwlr->validHtmlPage($this->getCurrentUrlObj());
 
             if ($request === true) {// check if the page exists
-                $this->db->setResponsHeader(200, $this->getCurrentPage());
-                $this->db->setUrlAsGood($this->getCurrentPage()); // set found in db to true
-                //$crwlr->close();
+                $this->getCurrentUrlObj()->setFound(true);
+                $this->getCurrentUrlObj()->setHeader(200);
+                $this->db->saveUrl($this->getCurrentUrlObj());
+                $s = microtime(true);
+
                 $this->crwlr->init();
-                $thishtml = $this->crwlr->getContent($this->current_page);
-                $page = new PageCrawler($thishtml, $this->current_page); // get page content
+                $thishtml = $this->crwlr->getContent($this->getCurrentUrlObj());
+                        $e = microtime(true);
+        $totaltime = round($e - $s, 2) . " Seconds \n";
+        echo $totaltime;
+                $page = new PageCrawler($thishtml, $this->getCurrentUrlObj()); // get page content
                 $this->saveHTML($thishtml);
-               // $crwlr->close();
-                //unset($crwlr);
-                $this->addUrls($page->getPageUrls(), $this->getCurrentPage()); // add found urls to queue
+                $this->addUrls($page->getPageUrls(), $this->getCurrentUrlObj());
+
             } else {
-                $this->db->setResponsHeader($this->crwlr->httpHeaders($this->getCurrentPage()), $this->getCurrentPage());
-                if ($this->crwlr->pageMoved($this->getCurrentPage())) {// test if current url has redirect header if yes, add the redirect location to the queue
-                    $newurl[0] = $this->crwlr->getRedirectLocation($this->getCurrentPage());
-                    $this->addUrls($newurl, $this->getCurrentPage()); // add found urls to queue
+                $httpheader=$this->crwlr->httpHeaders($this->getCurrentUrlObj());// get http header
+                $this->getCurrentUrlObj()->setHeader($httpheader);
+                $this->db->saveUrl($this->getCurrentUrlObj());
+                if ($this->crwlr->pageMoved($this->getCurrentUrlObj())) {// test if current url has redirect header if yes, add the redirect location to the queue
+                    $newurl[0] = $this->crwlr->getRedirectLocation($this->getCurrentUrlObj());
+                    $this->addUrls($newurl, $this->getCurrentUrlObj()); // add found urls to queue
                 } else {
-                    $this->db->setUrlAsBad($this->getCurrentPage()); // set found in db to false
+                    $this->getCurrentUrlObj()->setFound(false);
+                    $this->db->setUrlAsBad($this->getCurrentUrlObj()); // set found in db to false
                 }
             }
-            unset ($this->crwlr);
-            echo ".";
-            $endtime = microtime(true);
-            $elapsed = $endtime - $starttime;
-            //@todo do something with the elapsed time or remove it
+            unset($this->crwlr);
+
+echo ".";
         }
     }
 
@@ -134,115 +142,36 @@ class Crawler
      * saves html from page to database
      * @param type $html
      */
-
-    public function saveHtml($html)
+    private function saveHtml($html)
     {
-        $md5 = md5($html);
-        $this->db->saveHTML($this->getCurrentPage(),$html,$md5);
 
+        $md5 = md5($html);
+        $this->db->saveHTML($this->getCurrentUrlObj(), $html, $md5);
     }
+
     /**
      * adds urls to queue
      * {@filesource}
      * @param Array  $urls
      * @param string $page
      */
-    public function addUrls($urls, $page)
+    private function addUrls($urls)
     {
         if ((array) $urls == $urls) {
-            //$urls = $this->makeUrlsAbsolute($urls, $this->getCurrent_page());
-            $urls = $this->runTweaks($urls);
-            $urls = $this->runFilters($urls);
-            $urls = array_diff($urls, $this->db->getUrlsDone(), $this->db->getUrlsToDo()); // get list of urls that have not been checked
-            $urls = array_unique($urls); // keep only the unique urls
-            $this->db->addUrls($urls, $page);
+            //$all = $urls;
+
+            $delta = $this->runTweaks($urls);
+            $delta = $this->runFilters($delta);
+            $delta = array_unique($delta);
+            $alpha = $delta;
+            $delta = array_diff($delta, $this->db->getUrlsAsArray()); // get list of urls that have not been checked
+
+            $this->db->addUrls($delta, $this->getCurrentUrlObj());
+            $alpha = \array_unique($alpha);
+
+            $this->db->storeLinking($alpha,$this->getCurrentUrlObj()); // keep links in seperate table for later use
         }
     }
-
-    /**
-     * returns one url to start scraping
-     * {@filesource}
-     * @return String
-     */
-    /*
-    private function getUrlToWorkOn()
-    {
-        $todo = $this->db->getUrlToWorkOn();
-
-        return $todo;
-    }*/
-
-    /**
-     * makes sure that all urls in array are absolute path and not relative
-     * @param  array  $urls
-     * @param  string $currentpage
-     * @return array
-
-      private function makeUrlsAbsolute($urls, $currentpage)
-      {
-      $returnurls = array();
-      foreach ($urls as $url) {
-      array_push($returnurls, $this->relative_to_abolute_url($currentpage, $url));
-      }
-
-      return $returnurls;
-      } */
-    /**
-     * returns the absolute path for a given url
-     * @param  string $base
-     * @param  string $href
-     * @return string
-
-      private function relative_to_abolute_url($base, $href)
-      {
-      // href="" ==> current url.
-      if (!$href) {
-      return $base;
-      }
-
-      // href="http://..." ==> href isn't relative
-      $rel_parsed = parse_url($href);
-      if (array_key_exists('scheme', $rel_parsed)) {
-      return $href;
-      }
-
-      // add an extra character so that, if it ends in a /, we don't lose the last piece.
-      $base_parsed = parse_url("$base ");
-      // if it's just server.com and no path, then put a / there.
-      if (!array_key_exists('path', $base_parsed)) {
-      $base_parsed = parse_url("$base/ ");
-      }
-
-      // href="/ ==> throw away current path.
-      if ($href{0} === "/") {
-      $path = $href;
-      } else {
-      $path = dirname($base_parsed['path']) . "/$href";
-      }
-
-      // bla/./bloo ==> bla/bloo
-      $path = preg_replace('~/\./~', '/', $path);
-
-      // resolve /../
-      // loop through all the parts, popping whenever there's a .., pushing otherwise.
-      $parts = array();
-      foreach (
-      explode('/', preg_replace('~/+~', '/', $path)) as $part
-      )
-      if ($part === "..") {
-      array_pop($parts);
-      } elseif ($part != "") {
-      $parts[] = $part;
-      }
-
-      return (
-      (array_key_exists('scheme', $base_parsed)) ?
-      $base_parsed['scheme'] . '://' . $base_parsed['host'] : ""
-      ) . "/" . implode("/", $parts);
-      }
-     *
-     *
-     */
 
     /**
      * runs a list of provided tweaks over a given list of urls

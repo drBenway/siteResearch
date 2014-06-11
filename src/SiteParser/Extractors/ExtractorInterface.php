@@ -9,4 +9,3 @@ interface ExtractorInterface
      */
     public function extract($id);
 }
-?>

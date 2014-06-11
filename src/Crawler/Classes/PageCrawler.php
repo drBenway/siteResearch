@@ -42,7 +42,7 @@ class PageCrawler
      * @param string $html
      * @param string $page
      */
-    public function __construct($html, $page)
+    public function __construct($html, \Crawler\Entities\Links $page)
     {
         $this->pagehtml = $html;
         $this->pageurl = $page;
@@ -54,42 +54,55 @@ class PageCrawler
      */
     private function parsePage()
     {
-        $crwlr = new DomCrawler\Crawler($this->pagehtml, $this->pageurl);
-        $nodes = $crwlr->filter('a');
-        //print_r($nodes->links());
-
+        $crwlr = new DomCrawler\Crawler($this->pagehtml, $this->pageurl->getUrl());
+        try {
+            $nodes = $crwlr->filter('a');
+            //print_r($nodes->links());
+        } catch (Exception $e) {
+            echo "issue crawling html tags " . $e->getMessage();
+        }
         foreach ($nodes->links() as $link) {
             array_push($this->urls, $link->getUri());
         }
         unset($crwlr);
         $this->removeMailto();
         $this->removeJavascript();
+        $this->trim();
+
         return $this->urls;
     }
-    
-    
+
     private function removeMailto()
     {
         $return = array();
-        foreach ($this->urls as $url){
-            if(strpos($url,'mailto:') === false)
-            {
+        foreach ($this->urls as $url) {
+            if (strpos($url, 'mailto:') === false) {
                 array_push($return, $url);
             }
         }
-        $this->urls= $return;  
+        $this->urls = $return;
     }
-    
-    private function removeJavascript ()
+
+        private function trim()
     {
-         $return = array();
-        foreach ($this->urls as $url){
-            if(strpos($url,'javascript:') === false)
-            {
+        $return = array();
+        foreach ($this->urls as $url) {
+
+                array_push($return, trim($url));
+
+        }
+        $this->urls = $return;
+    }
+
+    private function removeJavascript()
+    {
+        $return = array();
+        foreach ($this->urls as $url) {
+            if (strpos($url, 'javascript:') === false) {
                 array_push($return, $url);
             }
         }
-        $this->urls= $return;        
+        $this->urls = $return;
     }
 
     /**

@@ -1,0 +1,272 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>API Documentation » \Crawler\Entities\Page</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">API Documentation</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/Crawler.html"><i class="icon-th"></i> Crawler</a></li>
+<li><a href="../namespaces/siteResearch.html"><i class="icon-th"></i> siteResearch</a></li>
+<li><a>Packages</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+<li><a href="../packages/siteResearch.html"><i class="icon-folder-open"></i> siteResearch</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">92</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<div class="btn-toolbar">
+<div class="btn-group visibility" data-toggle="buttons-checkbox">
+<button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button>
+</div>
+<div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i title="Methods" class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public "><a href="#method_getHtml" title="getHtml() :: "><span class="description">getHtml()
+        </span><pre>getHtml()</pre></a></li>
+<li class="method public "><a href="#method_getId" title="getId() :: "><span class="description">getId()
+        </span><pre>getId()</pre></a></li>
+<li class="method public "><a href="#method_getLinkid" title="getLinkid() :: "><span class="description">getLinkid()
+        </span><pre>getLinkid()</pre></a></li>
+<li class="method public "><a href="#method_getMd5" title="getMd5() :: "><span class="description">getMd5()
+        </span><pre>getMd5()</pre></a></li>
+<li class="method public "><a href="#method_setHtml" title="setHtml() :: "><span class="description">setHtml()
+        </span><pre>setHtml()</pre></a></li>
+<li class="method public "><a href="#method_setId" title="setId() :: "><span class="description">setId()
+        </span><pre>setId()</pre></a></li>
+<li class="method public "><a href="#method_setLinkid" title="setLinkid() :: "><span class="description">setLinkid()
+        </span><pre>setLinkid()</pre></a></li>
+<li class="method public "><a href="#method_setMd5" title="setMd5() :: "><span class="description">setMd5()
+        </span><pre>setMd5()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i title="Properties" class="icon-custom icon-property"></i> Properties
+                    <ul></ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul>
+<li class="property protected "><a href="#property_html" title="$html() :: "><span class="description"></span><pre>$html</pre></a></li>
+<li class="property protected "><a href="#property_id" title="$id() :: "><span class="description"></span><pre>$id</pre></a></li>
+<li class="property protected "><a href="#property_linkid" title="$linkid() :: "><span class="description"></span><pre>$linkid</pre></a></li>
+<li class="property protected "><a href="#property_md5" title="$md5() :: "><span class="description"></span><pre>$md5</pre></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a id="\Crawler\Entities\Page"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i title="Classes" class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/Crawler.html">Crawler</a></li>
+<li>
+<span class="divider">\</span><a href="../namespaces/Crawler.Entities.html">Entities</a>
+</li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/Crawler.Entities.Page.html">Page</a>
+</li>
+</ul>
+<div class="element class">
+<p class="short_description"></p>
+<div class="details">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>Entity</th>
+<td>@Table(name=&quot;Page&quot;)</td>
+</tr></table>
+<h3>
+<i title="Methods" class="icon-custom icon-method"></i> Methods</h3>
+<a id="method_getHtml"></a><div class="element clickable method public method_getHtml" data-toggle="collapse" data-target=".method_getHtml .collapse" title="public">
+<h2>getHtml()
+        </h2>
+<pre>getHtml() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_getId"></a><div class="element clickable method public method_getId" data-toggle="collapse" data-target=".method_getId .collapse" title="public">
+<h2>getId()
+        </h2>
+<pre>getId() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_getLinkid"></a><div class="element clickable method public method_getLinkid" data-toggle="collapse" data-target=".method_getLinkid .collapse" title="public">
+<h2>getLinkid()
+        </h2>
+<pre>getLinkid() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_getMd5"></a><div class="element clickable method public method_getMd5" data-toggle="collapse" data-target=".method_getMd5 .collapse" title="public">
+<h2>getMd5()
+        </h2>
+<pre>getMd5() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_setHtml"></a><div class="element clickable method public method_setHtml" data-toggle="collapse" data-target=".method_setHtml .collapse" title="public">
+<h2>setHtml()
+        </h2>
+<pre>setHtml($html) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$html</h4></div>
+</div></div>
+</div>
+<a id="method_setId"></a><div class="element clickable method public method_setId" data-toggle="collapse" data-target=".method_setId .collapse" title="public">
+<h2>setId()
+        </h2>
+<pre>setId($id) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$id</h4></div>
+</div></div>
+</div>
+<a id="method_setLinkid"></a><div class="element clickable method public method_setLinkid" data-toggle="collapse" data-target=".method_setLinkid .collapse" title="public">
+<h2>setLinkid()
+        </h2>
+<pre>setLinkid($linkid) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$linkid</h4></div>
+</div></div>
+</div>
+<a id="method_setMd5"></a><div class="element clickable method public method_setMd5" data-toggle="collapse" data-target=".method_setMd5 .collapse" title="public">
+<h2>setMd5()
+        </h2>
+<pre>setMd5($md5) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$md5</h4></div>
+</div></div>
+</div>
+<h3>
+<i title="Properties" class="icon-custom icon-property"></i> Properties</h3>
+<a id="property_html"> </a><div class="element clickable property protected property_html" data-toggle="collapse" data-target=".property_html .collapse" title="protected">
+<h2>$html</h2>
+<pre>$html </pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>Column</th>
+<td>(type=&quot;blob&quot;)</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_id"> </a><div class="element clickable property protected property_id" data-toggle="collapse" data-target=".property_id .collapse" title="protected">
+<h2>$id</h2>
+<pre>$id </pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>id</th>
+<td>@Column(type=&quot;integer&quot;) @GeneratedValue</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_linkid"> </a><div class="element clickable property protected property_linkid" data-toggle="collapse" data-target=".property_linkid .collapse" title="protected">
+<h2>$linkid</h2>
+<pre>$linkid </pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>Column</th>
+<td>(type=&quot;integer&quot;)</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_md5"> </a><div class="element clickable property protected property_md5" data-toggle="collapse" data-target=".property_md5 .collapse" title="protected">
+<h2>$md5</h2>
+<pre>$md5 </pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>Column</th>
+<td>(type=&quot;string&quot;)</td>
+</tr></table>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.1
+</a> and<br>
+            generated on 2014-06-11T22:40:14+02:00.<br></footer></div>
+</div>
+</body>
+</html>

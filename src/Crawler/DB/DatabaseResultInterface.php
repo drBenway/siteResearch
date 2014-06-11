@@ -1,57 +1,60 @@
 <?php
 
 /**
- * interface for crawler database
+ * interface for the result database
  *
  * @package siteResearch
  * @subpackage crawler
  * @author Yves Peeters
- * @todo add option to import all known links from google
- * @todo add option to import all links from sitemap.xml file
  */
 
 namespace Crawler\DB;
 
 interface DatabaseResultInterface
 {
-    /**
-     * obtain a list of all urls that have been redirected
-     */
-    public function getRedirectedUrls();
 
     /**
-     * obtain the full crawler table
-     */
-    public function getAll();
-
-    /**
-     * count the total of all urls found
-     */
-    public function countUrls();
-
-    /**
-     * count all urls that have a responseheader different from 200 (expl 302, 404)
+     * count all the urls with httpheader > 399
+     * @param array  $urls
+     * @param string $origin
      */
     public function countBadUrls();
 
     /**
-     * obtain a list of all bad urls (not httpheader 200)
+     * count all urls in the database
+     */
+    public function countUrls();
+
+    /**
+     * get all the urls
+     * @param string $url
+     */
+    public function  getAll();
+
+    /**
+     * get a list of all bad urls
      */
     public function getBadUrls();
 
     /**
-     * obtain a list of all bad urls with the refering url
+     * get a list of all bad urls and the page containing them
      */
     public function getBadUrlsByReferer();
 
     /**
-     * obtain a list of all urls with header 200
+     * get al list of all good ulrs
+
      */
     public function getGoodUrls();
 
     /**
-     * get a list of all good urls (header 200) that contain a given string
+     * get a list of all good urls that contain $like
      * @param string $like
      */
-    public function getGoodUrlsLike($like);
+    public function getGoodUrlsLike(string $like);
+
+    /**
+     * get a list of all redirected urls
+     */
+    public function getRedirectedUrls();
 }

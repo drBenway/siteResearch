@@ -14,7 +14,7 @@ abstract class ExportAbstract
     /**
     * @param string $filename
     */
-    abstract public function __construct($filename);
+    abstract public function __construct($filename,$db);
 
     /**
     *  export results

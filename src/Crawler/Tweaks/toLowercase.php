@@ -22,12 +22,17 @@ class toLowercase implements TweakInterface
      */
     public function tweak($urls)
     {
-        $returnarray = array();
-        foreach ($urls as $url) {
-            array_push($returnarray, strtolower($url));
-        }
+        if (is_array($urls)) {
 
-        return $returnarray;
+            $returnarray = array();
+            foreach ($urls as $url) {
+                array_push($returnarray, strtolower($url));
+            }
+
+            return $returnarray;
+        } else {
+            throw new \InvalidArgumentException('toLowercase->tweak expects array as input.');
+        }
     }
 
 }

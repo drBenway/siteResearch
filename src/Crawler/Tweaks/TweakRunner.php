@@ -10,10 +10,15 @@
 
 namespace Crawler\Tweaks;
 
+use Symfony\Component\DependencyInjection\ContainerBuilder,
+    Symfony\Component\Config\FileLocator,
+    Symfony\Component\DependencyInjection\Loader\XmlFileLoader,
+    Crawler\Classes as Classes;
+
 /**
  * factory for filters
  */
-class TweakRunner
+class TweakRunner implements Classes\RunnerInterface
 {
     /**
      * stores a list of all the filters to run
@@ -31,9 +36,10 @@ class TweakRunner
      * constructor
      * @param string $configxml path to config xml
      */
-    public function __construct($configxml)
+    public function __construct($configxml = "__DIR__./tweaks.xml")
     {
-        $this->configfile = $configxml;
+        $this->configfile = __DIR__."/".$configxml;
+
     }
 
     /**
@@ -47,11 +53,14 @@ class TweakRunner
             exit('Failed to open config file for Tweaks:' . $this->configfile);
         }
 
+        $servicecontainer = new ContainerBuilder();
+        $loader = new XmlFileLoader($servicecontainer, new FileLocator(__DIR__ . "/../config/"));
+        $loader->load("dic.xml");
+
         $xml = simplexml_load_file($this->configfile);
         foreach ($xml->tweak as $tweak) {
             $classname = (string) $tweak;
-            $classname = "Crawler\\Tweaks\\".$classname;
-            $obj = new $classname();
+            $obj = $servicecontainer->get("$classname");
             array_push($this->list, $obj);
         }
     }

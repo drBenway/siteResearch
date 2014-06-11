@@ -1,9 +1,12 @@
 <?php
+
 /**
  * @package siteResearch
  * @author Yves Peeters
  */
+
 namespace Crawler\Export;
+
 use Crawler\DB as DB;
 use Crawler\Classes as Classes;
 
@@ -21,23 +24,25 @@ use Crawler\Classes as Classes;
  * option to send a ping to searchengines, telling them you updated the sitemap
  * @author Yves Peeters
  */
-class SitemapExport  extends ExportAbstract
+class SitemapExport extends ExportAbstract
 {
-    private $url="";
-    private $data="";
+    private $data = "";
     private $xml;
-    private $filename;
-    private $ping=
-    array(array('Google','http://www.google.com/webmasters/sitemaps/ping?sitemap='),
-          array('Yahoo','http://search.yahooapis.com/SiteExplorerService/V1/updateNotification?appid=YahooDemo&url='),
-          array('Ask','http://submissions.ask. com/ping?sitemap='),
-          array('Bing','http://www.bing.com/webmaster/ping.aspx?siteMap='));
+    private $ping =
+            array(array('Google', 'http://www.google.com/webmasters/sitemaps/ping?sitemap='),
+        array('Yahoo', 'http://search.yahooapis.com/SiteExplorerService/V1/updateNotification?appid=YahooDemo&url='),
+        array('Ask', 'http://submissions.ask. com/ping?sitemap='),
+        array('Bing', 'http://www.bing.com/webmaster/ping.aspx?siteMap='));
 
-    public function __construct($filename)
+    public function __construct($filename, \Crawler\DB\DatabaseResultInterface $db)
     {
-        $this->path= $filename;
-        $this->db = new DB\CrawlerResultsDB();
-        $this->generateSitemap();
+        $this->path = $filename;
+        $this->setDB=($db);
+    }
+
+    private function setDB(DB\DatabaseResultInterface $db)
+    {
+        $this->db = $db;
     }
 
     /**
@@ -60,9 +65,9 @@ class SitemapExport  extends ExportAbstract
             \t<urlset xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
          xsi:schemaLocation='http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd'
          xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>";
-        foreach ($this->data as $url) {
+        foreach ($this->data as $obj) {
             $this->xml .="\t\t<url>\n";
-            $this->xml .="\t\t\t<loc>".urlencode($url)."</loc>\n";
+            $this->xml .="\t\t\t<loc>" . urlencode($obj->getUrl()) . "</loc>\n";
             $this->xml .="\t\t</url>";
         }
         $this->xml .="\t</urlset>";
@@ -79,8 +84,8 @@ class SitemapExport  extends ExportAbstract
     public function export()
     {
         try {
-        $fp = fopen($this->path, 'w');
-        fwrite($fp, $this->xml);
+            $fp = fopen($this->path, 'w');
+            fwrite($fp, $this->xml);
         } catch (Exception $e) {
             echo "failed to export sitemap";
         }
@@ -102,11 +107,12 @@ class SitemapExport  extends ExportAbstract
         foreach ($this->ping as $SE) {
             $crl = new Classes\PHP_Curl_Crawler();
             $crl->init();
-            $response = $crl->getContent($SE[1].$url);
-            array_push($return,array($SE[0],$response));
+            $response = $crl->getContent($SE[1] . $url);
+            array_push($return, array($SE[0], $response));
             unset($crl);
         }
 
         return $return;
     }
+
 }

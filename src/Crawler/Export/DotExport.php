@@ -1,5 +1,7 @@
 <?php
 
+namespace Crawler\Export;
+
 /**
  * CSV export for crawler tables
  *
@@ -7,15 +9,13 @@
  * @subpackage crawler
  * @author Yves Peeters
  */
-
-namespace Crawler\Export;
-
 use Crawler\DB as DB;
 
 /**
  * exports crawler table to a dot file (GraphViz)
  */
-class DotExport extends ExportAbstract {
+class DotExport extends ExportAbstract
+{
 
     /**
      * holds crawerlresultdb object
@@ -45,15 +45,22 @@ class DotExport extends ExportAbstract {
      * create csvexport object
      * @param string $filename
      */
-    public function __construct($filename) {
-        $this->db = new DB\CrawlerResultsDB();
+    public function __construct($filename,  \Crawler\DB\DatabaseResultInterface $db)
+    {
         $this->setFilename($filename);
+        $this->setDB($db);
+    }
+
+    private function setDB($db)
+    {
+        $this->db = $db;
     }
 
     /**
      * get a listing of the crawler table
      */
-    private function generateList() {
+    private function generateList()
+    {
         $this->list = $this->db->getAll();
     }
 
@@ -61,14 +68,16 @@ class DotExport extends ExportAbstract {
      * csv file name
      * @param string $name
      */
-    private function setFilename($name) {
+    private function setFilename($name)
+    {
         $this->filename = $name;
     }
 
     /**
      * write csv file
      */
-    public function export() {
+    public function export()
+    {
         $this->generateList();
 
         $xmlstring = "<?xml version='1.0'?><root></root>";
@@ -76,24 +85,22 @@ class DotExport extends ExportAbstract {
 
         $id = 1;
         foreach ($this->list as $obj) {
-            $parsedurl = parse_url($obj->url);
+            $parsedurl = parse_url($obj->getUrl());
             $parts = explode("/", $parsedurl['path']);
             $xmltree = $xml;
             foreach ($parts as $part) {
 
                 if ($part != '') {
                     if (!isset($xmltree->$part)) {
-                        try{
-                        $xmltree->addChild("$part");
-                        $xmltree = $xmltree->$part;
-                        $xmltree->addAttribute('id', $id);
-                        $id++;
-                        }
-                        catch (Exception $e){
-                            echo "part: ".$part;
+                        try {
+                            $xmltree->addChild("$part");
+                            $xmltree = $xmltree->$part;
+                            $xmltree->addAttribute('id', $id);
+                            $id++;
+                        } catch (Exception $e) {
+                            echo "part: " . $part;
                             echo "----------------";
                             echo $e->getMessage();
-                            
                         }
                     } else {
                         $mynode = $xmltree->$part;
@@ -106,6 +113,7 @@ class DotExport extends ExportAbstract {
                 }
             }
         }
+        $xml->asXml('updated.xml');
 
         try {
             //$it= simplexml_load_string($xml);
@@ -115,11 +123,12 @@ class DotExport extends ExportAbstract {
             $output .= "orientation=landscape\n";
             $output .= "size = \"auto\"\n";
             //$output .= "rankdir=LR";
-            $output .= "page\"16.5,11.7\"\n";// A3, only for ps files
+            $output .= "page\"16.5,11.7\"\n"; // A3, only for ps files
             $output .= "node [shape=box color=\"#9ACEEB\"]\n";
             $output .= "edge [color=\"#FF00FF\"]\n";
 
-            function outputDot($xml) {
+            function outputDot($xml)
+            {
                 global $output;
                 foreach ($xml as $node) {
                     $output.= $node['id'] . " [label=\"" . $node->getName() . "\"]\n";
@@ -135,7 +144,6 @@ class DotExport extends ExportAbstract {
 
             $output .= outputDot($xml);
             $output .="}\n";
-
 
             $fp = fopen($this->filename, 'w');
             fwrite($fp, $output);

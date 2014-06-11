@@ -17,7 +17,11 @@ class removeDuplicates implements TweakInterface
 {
     public function tweak($urls)
     {
-        return array_unique($urls);
+        if (is_array($urls)) {
+            return array_unique($urls);
+        } else {
+            throw new \InvalidArgumentException("removeDuplicates expects parameter to be array");
+        }
     }
 
 }

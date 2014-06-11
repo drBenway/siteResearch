@@ -1,12 +1,15 @@
 <?php
+
 /**
  * interface for tweaks
  *
-  * @package siteResearch
+ * @package siteResearch
  * @subpackage crawler
  * @author Yves Peeters
  */
+
 namespace Crawler\Tweaks;
+
 /**
  * Tweaks are scripts that need to run while the crawler is busy crawling pages.
  * These scripts are executed, after the crawler has finished crawling a page.

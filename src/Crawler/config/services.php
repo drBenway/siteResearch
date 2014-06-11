@@ -34,5 +34,5 @@ $serviceContainer->setDefinition('TweakRunner', $TweaksDefinition);
 /**
  * Filters namespace
  */
-$FiltersDefinition = new Definition('Tilters\TweakRunner');
+$FiltersDefinition = new Definition('Filters\TweakRunner');
 $serviceContainer->setDefinition('FilterRunner', $FiltersDefinition);

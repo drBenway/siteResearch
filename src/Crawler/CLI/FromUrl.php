@@ -1,17 +1,26 @@
 <?php
-
+/**
+ * Import from url command
+ *
+ * @package siteResearch
+ * @subpackage crawler
+ * @author Yves Peeters
+ */
 namespace Crawler\CLI;
 
 use Symfony\Component\Console\Input\InputArgument,
     Symfony\Component\Console\Input\InputOption,
     Symfony\Component\Console,
-    Symfony\Component\Console\Input\INputInterface,
+    Symfony\Component\Console\Input\InputInterface,
     Symfony\Component\Console\Output\OutputInterface,
-    Crawler\DB as DB,
-    Crawler\Tweaks as Tweaks,
-    Crawler\Filters as Filters,
+    Symfony\Component\DependencyInjection\ContainerBuilder,
+    Symfony\Component\Config\FileLocator,
+    Symfony\Component\DependencyInjection\Loader\XmlFileLoader,
     Crawler\Classes as Classes;
 
+/**
+ * crawler starts from a given url
+ */
 class FromUrl extends Console\Command\Command
 {
     protected function configure()
@@ -19,8 +28,8 @@ class FromUrl extends Console\Command\Command
         $this
                 ->setName('fromurl')
                 ->addArgument('fromurl', InputArgument::REQUIRED, 'string containing url')
-                ->setDescription('The url we want to crawl')
-                ->setHelp('the url command takes an absolute url as starting point for the crawling
+                ->setDescription('Crawl starting at a given url')
+                ->setHelp('the fromurl command takes an absolute url as starting point for the crawling
                 example:
                 php crawler.php url "http://www.bbc.co.uk"')
                 ->addOption(
@@ -34,28 +43,30 @@ class FromUrl extends Console\Command\Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $domain = $input->getArgument('fromurl');
-        $db = new DB\CrawlerDB;
+
+         $servicecontainer = new ContainerBuilder();
+         $loader = new XmlFileLoader($servicecontainer, new FileLocator(__DIR__.'/../config/'));
+         $loader->load("dic.xml");
+
+        $db = $servicecontainer->get('newdb');
         $db->initCrawler($domain);
 
         if (gettype($input->getOption('tweaks')) == 'string') {
-
             $tweaksloc = $input->getOption('tweaks');
-            $tweaks = new Tweaks\TweakRunner($tweaksloc);
-            $tweaks->init();
-        } else {
-            $tweaks = new Tweaks\TweakRunner('Crawler/Tweaks/tweaks.xml');
-
-            $tweaks->init();
-
+            //update parameter in dic
+            $servicecontainer->setParameter('tweaks.constructorinput', $tweaksloc);
         }
+
+        $tweaks = $servicecontainer->get('tweaks');
+        $tweaks->init();
 
         if (gettype($input->getOption('filters')) == 'string') {
-
-            $filters = $input->getOption('filters');
-        } else {
-            $filters = new Filters\FilterRunner('Crawler/Filters/filters.xml');
-            $filters->init();
+            $filter = $input->getOption('filters');
+            //update parameter in dic
+            $servicecontainer->setParameter('filters.constructorinput', $filter);
         }
+        $filters = $servicecontainer->get('filters');
+        $filters->init();
 
         if ($input->getOption('store')) {
             $store = true;

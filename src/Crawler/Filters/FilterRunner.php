@@ -9,10 +9,15 @@
  */
 
 namespace Crawler\Filters;
+
+  use  Symfony\Component\DependencyInjection\ContainerBuilder,
+    Symfony\Component\Config\FileLocator,
+    Symfony\Component\DependencyInjection\Loader\XmlFileLoader,
+ Crawler\Classes\RunnerInterface as RunnerInterface;
 /**
  * factory for filters
  */
-class FilterRunner
+class FilterRunner implements RunnerInterface
 {
     /**
      * stores a list of all the filters to run
@@ -32,7 +37,7 @@ class FilterRunner
      */
     public function __construct($configxml)
     {
-        $this->configfile = $configxml;
+        $this->configfile = __DIR__."/".$configxml;
     }
 
     /**
@@ -46,11 +51,14 @@ class FilterRunner
             exit('Failed to open config file for Filters:' . $this->configfile);
         }
 
+        $servicecontainer = new ContainerBuilder();
+         $loader = new XmlFileLoader($servicecontainer, new FileLocator(__DIR__."/../config/"));
+         $loader->load("dic.xml");
+
         $xml = simplexml_load_file($this->configfile);
         foreach ($xml->filter as $filter) {
             $classname = (string) $filter;
-            $classname = "Crawler\\Filters\\".$classname;
-            $obj = new $classname();
+            $obj = $servicecontainer->get("$classname");
             array_push($this->list, $obj);
         }
     }

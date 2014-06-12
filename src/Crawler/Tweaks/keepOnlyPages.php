@@ -30,6 +30,7 @@ class keepOnlyPages implements TweakInterface
      */
     public function tweak($urls)
     {
+        
         $returnarray = array();
         //$curl = new Classes\CurlHelper();
         //$curl->init();
@@ -41,6 +42,7 @@ class keepOnlyPages implements TweakInterface
             //$mystring = $info["content_type"];
             //$found = stripos($mystring, "html");
             $temp = parse_url($url);
+            
             if (isset($temp['path'])) {
                 /*
                  * $findaspx = strpos($temp['path'], '.aspx');
@@ -49,8 +51,9 @@ class keepOnlyPages implements TweakInterface
                  */
                 $allowedvalues = array(".php", ".asp", ".aspx", ".jsp", ".htm", ".html");
                 $lastchar = substr($temp['path'], -1);
-                $extention = $temp['path']['extension'];
-                if (inArray($extention, $allowedvalues) or $lastchar = "/") {
+                $extension = strtolower($temp['path']['extension']);
+                
+                if (in_array($extension, $allowedvalues) or $lastchar = "/") {
                     array_push($returnarray, $url);
                 }
             } else {
